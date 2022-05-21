@@ -103,6 +103,15 @@ namespace WPFUIKitProfessional.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Achievements.
+        /// </summary>
+        internal static string achievements {
+            get {
+                return ResourceManager.GetString("achievements", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на SQL aliases are used to give a table, or a column in a table, a temporary name.
         ///Aliases are often used to make column names more readable.
         ///An alias only exists for the duration of that query.
@@ -402,6 +411,15 @@ namespace WPFUIKitProfessional.Properties {
         internal static string self {
             get {
                 return ResourceManager.GetString("self", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Settings.
+        /// </summary>
+        internal static string settings {
+            get {
+                return ResourceManager.GetString("settings", resourceCulture);
             }
         }
         

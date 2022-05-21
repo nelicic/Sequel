@@ -120,6 +120,9 @@
   <data name="account" xml:space="preserve">
     <value>Обліковий запис</value>
   </data>
+  <data name="achievements" xml:space="preserve">
+    <value>Досягнення</value>
+  </data>
   <data name="aliases" xml:space="preserve">
     <value>Псевдоніми SQL використовуються для надання таблиці або стовпця в таблиці тимчасового імені.
 Псевдоніми часто використовуються, щоб зробити імена стовпців більш читабельними.
@@ -266,6 +269,9 @@ ALL означає, що умова буде істинною, лише якщо
   <data name="self" xml:space="preserve">
     <value>Самооб’єднання – це звичайне з’єднання, але таблиця об’єднується сама з собою.
 T1 і T2 – різні псевдоніми таблиць для однієї таблиці.</value>
+  </data>
+  <data name="settings" xml:space="preserve">
+    <value>Налаштування</value>
   </data>
   <data name="union" xml:space="preserve">
     <value>Оператор UNION використовується для поєднання набору результатів з двох або більше операторів SELECT.

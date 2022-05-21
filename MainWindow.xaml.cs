@@ -30,8 +30,8 @@ namespace WPFUIKitProfessional
             // Culture
             LangUtils.Register();
             ChangeCulture("en");
-            Language.Items.Add("en");
-            Language.Items.Add("uk");
+            Languages.Items.Add("en");
+            Languages.Items.Add("uk");
             // ----------------------
         }
 
@@ -43,7 +43,7 @@ namespace WPFUIKitProfessional
 
         private void Language_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            ChangeCulture(Language.SelectedValue.ToString());
+            ChangeCulture(Languages.SelectedValue.ToString());
         }
         #endregion
 
