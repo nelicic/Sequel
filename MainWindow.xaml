@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFUIKitProfessional"
+        xmlns:hm="http://schemas.hpod9.com/haley/mvvm"
         mc:Ignorable="d" x:Name="home"
         Title="MainWindow" Height="720" Width="1100"
         WindowStartupLocation="CenterScreen" WindowStyle="None"
@@ -41,7 +42,7 @@
                         <RadioButton x:Name="rdGuide" Content="Guide" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource guide}" Click="rdGuide_Click"/>
                         <RadioButton x:Name="rdLevels" Content="Levels" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource levels}" Margin="0 1 0 1" Click="rdLevels_Click"/>
                         <RadioButton x:Name="rdConstructor" Content="Constructor" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource constructor}" Margin="0 1 0 1" Click="rdConstructor_Click"/>
-                        <RadioButton x:Name="rdUsers" Content="Users" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource users}" Click="rdUsers_Click"/>
+                        <RadioButton x:Name="rdUsers" Content="{hm:Lang account}" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource users}" Click="rdUsers_Click"/>
 
                         <Separator Margin="20 20" Background="{DynamicResource TertiaryBackgroundColor}"/>
 
@@ -89,6 +90,7 @@
                         </Button.Style>
                     </Button>
                     <Button x:Name="btnMinimize" Style="{DynamicResource IconButtonsStyle}" Content="{DynamicResource minimize}" Click="btnMinimize_Click"/>
+                    <ComboBox  Height="40" Name="Language" SelectionChanged="Language_SelectionChanged"/>
                 </StackPanel>
                 <!-- End: Button Close | Restore | Minimize -->
                 
