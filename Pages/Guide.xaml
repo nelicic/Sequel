@@ -9,7 +9,7 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Guide" FontFamily="Poppins">
 
-    <Border CornerRadius="8" Background="{DynamicResource SecundaryBackgroundColor}">
+    <Border CornerRadius="8 0 0 8" Background="{DynamicResource SecundaryBackgroundColor}">
         <Grid>
             <ScrollViewer>
                 <StackPanel>
