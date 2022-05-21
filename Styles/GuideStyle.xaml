@@ -129,7 +129,7 @@
         <Setter Property="Margin" Value="0 10 0 0"/>
         <Setter Property="Padding" Value="10 0 10 10"/>
         <Setter Property="BorderThickness" Value="0,0,0,2"/>
-        <Setter Property="BorderBrush" Value="{DynamicResource SecundaryTextColor}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBackgroundColor}"/>
         <Setter Property="MaxWidth" Value="1250"/>
     </Style>
 
