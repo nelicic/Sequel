@@ -4,13 +4,13 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFUIKitProfessional"
+        xmlns:hm="http://schemas.hpod9.com/haley/mvvm"
         mc:Ignorable="d" x:Name="home"
         Title="MainWindow" Height="720" Width="1100"
         WindowStartupLocation="CenterScreen" WindowStyle="None"
         Background="Transparent" AllowsTransparency="True"
         ResizeMode="NoResize" WindowState="Maximized" FontFamily="Poppins">
 
-    
     <Border CornerRadius="10" Background="{DynamicResource PrimaryBackgroundColor}">
         <Grid>
             <Grid.ColumnDefinitions>
@@ -38,20 +38,19 @@
 
                     <StackPanel Grid.Row="1">
                         <Separator Margin="0 20 0 0" Background="Transparent"/>
-                        <RadioButton x:Name="rdGuide" Content="Guide" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource guide}" Click="rdGuide_Click"/>
-                        <RadioButton x:Name="rdLevels" Content="Levels" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource levels}" Margin="0 1 0 1" Click="rdLevels_Click"/>
-                        <RadioButton x:Name="rdConstructor" Content="Constructor" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource constructor}" Margin="0 1 0 1" Click="rdConstructor_Click"/>
-                        <RadioButton x:Name="rdUsers" Content="Users" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource users}" Click="rdUsers_Click"/>
+                        <RadioButton x:Name="rdGuide" Content="{hm:Lang guide}" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource guide}" Click="rdGuide_Click"/>
+                        <RadioButton x:Name="rdLevels" Content="{hm:Lang lvl}" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource levels}" Margin="0 1 0 1" Click="rdLevels_Click"/>
+                        <RadioButton x:Name="rdConstructor" Content="{hm:Lang constructor}" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource constructor}" Margin="0 1 0 1" Click="rdConstructor_Click"/>
+                        <RadioButton x:Name="rdUsers" Content="{hm:Lang account}" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource users}" Click="rdUsers_Click"/>
 
                         <Separator Margin="20 20" Background="{DynamicResource TertiaryBackgroundColor}"/>
 
-                        <RadioButton x:Name="rdNotifications" Content="Notifications" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource notifications}" Margin="0 1 0 1"/>
-                        <RadioButton x:Name="rdSettings" Content="Settings" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource settings}"/>
+                        <RadioButton x:Name="rdNotifications" Content="{hm:Lang achievements}" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource notifications}" Margin="0 1 0 1"/>
+                        <RadioButton x:Name="rdSettings" Content="{hm:Lang settings}" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource settings}"/>
 
                     </StackPanel>
 
-                    <Path Grid.Row="3" Data="{DynamicResource information}" Fill="{DynamicResource TertiaryTextColor}" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20 0 0 0"/>
-                    <Border Grid.Row="3" CornerRadius="18" Width="110" Height="35" Background="{DynamicResource TertiaryBackgroundColor}" HorizontalAlignment="Right" Margin="0 0 20 0">
+                    <Border Grid.Row="3" CornerRadius="18" Width="190" Height="35" Background="{DynamicResource TertiaryBackgroundColor}" HorizontalAlignment="Right" Margin="0 0 20 0">
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                             <Path Data="{DynamicResource sun}" Height="16" Width="16" Stretch="UniformToFill" Fill="{DynamicResource PrimaryYellowColor}" VerticalAlignment="Center"/>
                             <ToggleButton x:Name="Themes"
@@ -59,7 +58,8 @@
                                   Click="Themes_Click"
                                   HorizontalAlignment="Right"
                                   Style="{DynamicResource ToggleButtonStyle}"
-                                  Margin="10 0 10 0"/>
+                                  Margin="10 0 10 0"
+                                          Width="200"/>
                             <Path Data="{DynamicResource moon}" Height="16" Width="16" Stretch="Fill" Fill="{DynamicResource PrimaryWhiteColor}" VerticalAlignment="Center"/>
                         </StackPanel>
                     </Border>
@@ -89,6 +89,7 @@
                         </Button.Style>
                     </Button>
                     <Button x:Name="btnMinimize" Style="{DynamicResource IconButtonsStyle}" Content="{DynamicResource minimize}" Click="btnMinimize_Click"/>
+                    <ComboBox  Height="40" Name="Languages" SelectionChanged="Language_SelectionChanged"/>
                 </StackPanel>
                 <!-- End: Button Close | Restore | Minimize -->
                 

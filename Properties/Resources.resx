@@ -46,7 +46,7 @@
     
     mimetype: application/x-microsoft.net.object.binary.base64
     value   : The object must be serialized with 
-            : System.Serialization.Formatters.Binary.BinaryFormatter
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
             : and then encoded with base64 encoding.
     
     mimetype: application/x-microsoft.net.object.soap.base64
@@ -60,6 +60,7 @@
             : and then encoded with base64 encoding.
     -->
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
@@ -68,9 +69,10 @@
               <xsd:sequence>
                 <xsd:element name="value" type="xsd:string" minOccurs="0" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="name" use="required" type="xsd:string" />
               <xsd:attribute name="type" type="xsd:string" />
               <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
@@ -85,9 +87,10 @@
                 <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
                 <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
               <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
               <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
@@ -109,9 +112,180 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="account" xml:space="preserve">
+    <value>Account</value>
+  </data>
+  <data name="achievements" xml:space="preserve">
+    <value>Achievements</value>
+  </data>
+  <data name="aliases" xml:space="preserve">
+    <value>SQL aliases are used to give a table, or a column in a table, a temporary name.
+Aliases are often used to make column names more readable.
+An alias only exists for the duration of that query.
+An alias is created with the AS keyword.</value>
+  </data>
+  <data name="andornot" xml:space="preserve">
+    <value>The WHERE clause can be combined with AND, OR, and NOT operators.                                                            The AND and OR operators are used to filter records based on more than one condition.                                                                                                                                                                                                              The NOT operator displays a record if the condition(s) is NOT TRUE.</value>
+  </data>
+  <data name="anyall" xml:space="preserve">
+    <value>The ANY and ALL operators allow you to perform a comparison between a single column value and a range of other values.
+                                                                                                                                                                 The ANY operator:
+returns a boolean value as a result
+returns TRUE if ANY of the subquery values meet the condition
+ANY means that the condition will be true if the operation is true for any of the values in the range.
+                                                                                                                                                                     The ALL operator:            
+returns a boolean value as a result
+returns TRUE if ALL of the subquery values meet the condition
+is used with SELECT, WHERE and HAVING statements
+ALL means that the condition will be true only if the operation is true for all values in the range.</value>
+  </data>
+  <data name="between" xml:space="preserve">
+    <value>The BETWEEN operator selects values within a given range. The values can be numbers, text, or dates.
+
+The BETWEEN operator is inclusive: begin and end values are included.</value>
+  </data>
+  <data name="case" xml:space="preserve">
+    <value>The CASE statement goes through conditions and returns a value when the first condition is met (like an if-then-else statement). So, once a condition is true, it will stop reading and return the result. If no conditions are true, it returns the value in the ELSE clause.
+
+If there is no ELSE part and no conditions are true, it returns NULL.</value>
+  </data>
+  <data name="constructor" xml:space="preserve">
+    <value>Constructor</value>
+  </data>
+  <data name="delete" xml:space="preserve">
+    <value>The DELETE statement is used to delete existing records in a table.                                                Note: Be careful when deleting records in a table! Notice the WHERE clause in the DELETE statement. The WHERE clause specifies which record(s) should be deleted. If you omit the WHERE clause, all records in the table will be deleted!                                                                                        It is possible to delete all rows in a table without deleting the table. This means that the table structure, attributes, and indexes will be intact</value>
+  </data>
+  <data name="distinct" xml:space="preserve">
+    <value>The SELECT DISTINCT statement is used to return only distinct (different) values.
+
+Inside a table, a column often contains many duplicate values; and sometimes you only want to list the different (distinct) values.</value>
+  </data>
+  <data name="exist" xml:space="preserve">
+    <value>The EXISTS operator is used to test for the existence of any record in a subquery.
+
+The EXISTS operator returns TRUE if the subquery returns one or more records.</value>
+  </data>
+  <data name="from" xml:space="preserve">
+    <value>The FROM command is used to specify which table to select or delete data from.
+The following SQL statement selects the "CustomerName" and "City" columns from the "Customers" table:</value>
+  </data>
+  <data name="full" xml:space="preserve">
+    <value>The FULL OUTER JOIN keyword returns all records when there is a match in left (table1) or right (table2) table records.
+
+Tip: FULL OUTER JOIN and FULL JOIN are the same.</value>
+  </data>
+  <data name="functions" xml:space="preserve">
+    <value>The COUNT() function returns the number of rows that matches a specified criterion.
+
+The AVG() function returns the average value of a numeric column. 
+
+The SUM() function returns the total sum of a numeric column.</value>
+  </data>
+  <data name="groupby" xml:space="preserve">
+    <value>The GROUP BY statement groups rows that have the same values into summary rows, like "find the number of customers in each country".
+
+The GROUP BY statement is often used with aggregate functions (COUNT(), MAX(), MIN(), SUM(), AVG()) to group the result-set by one or more columns.</value>
+  </data>
+  <data name="guide" xml:space="preserve">
+    <value>Guide</value>
+  </data>
+  <data name="having" xml:space="preserve">
+    <value>The HAVING clause was added to SQL because the WHERE keyword cannot be used with aggregate functions.</value>
+  </data>
+  <data name="home" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="in" xml:space="preserve">
+    <value>The IN operator allows you to specify multiple values in a WHERE clause.
+
+The IN operator is a shorthand for multiple OR conditions.</value>
+  </data>
+  <data name="inner" xml:space="preserve">
+    <value>The INNER JOIN keyword selects records that have matching values in both tables.</value>
+  </data>
+  <data name="insertinto" xml:space="preserve">
+    <value>The INSERT INTO statement is used to insert new records in a table.                                                          It is possible to write the INSERT INTO statement in two ways:
+
+1. Specify both the column names and the values to be inserted.                                                               2. If you are adding values for all the columns of the table, you do not need to specify the column names in the SQL query. However, make sure the order of the values is in the same order as the columns in the table. Here, the INSERT INTO syntax would be as follows:</value>
+  </data>
+  <data name="join" xml:space="preserve">
+    <value>A JOIN clause is used to combine rows from two or more tables, based on a related column between them.
+(INNER) JOIN: Returns records that have matching values in both tables
+LEFT (OUTER) JOIN: Returns all records from the left table, and the matched records from the right table
+RIGHT (OUTER) JOIN: Returns all records from the right table, and the matched records from the left table
+FULL (OUTER) JOIN: Returns all records when there is a match in either left or right table</value>
+  </data>
+  <data name="left" xml:space="preserve">
+    <value>The LEFT JOIN keyword returns all records from the left table (table1), and the matching records from the right table (table2). The result is 0 records from the right side, if there is no match.</value>
+  </data>
+  <data name="like" xml:space="preserve">
+    <value>The LIKE operator is used in a WHERE clause to search for a specified pattern in a column.
+
+There are two wildcards often used in conjunction with the LIKE operator:
+
+ The percent sign (%) represents zero, one, or multiple characters
+ The underscore sign (_) represents one, single character</value>
+  </data>
+  <data name="limit" xml:space="preserve">
+    <value>The LIMIT clause is used to specify the number of records to return.
+
+The LIMIT clause is useful on large tables with thousands of records. Returning a large number of records can impact performance.</value>
+  </data>
+  <data name="lvl" xml:space="preserve">
+    <value>Levels</value>
+  </data>
+  <data name="lvlconstructor" xml:space="preserve">
+    <value>Level Constructor</value>
+  </data>
+  <data name="minmax" xml:space="preserve">
+    <value>The MIN() function returns the smallest value of the selected column.
+
+The MAX() function returns the largest value of the selected column.</value>
+  </data>
+  <data name="null" xml:space="preserve">
+    <value>A field with a NULL value is a field with no value.
+
+If a field in a table is optional, it is possible to insert a new record or update a record without adding a value to this field. Then, the field will be saved with a NULL value.                                                          Note: A NULL value is different from a zero value or a field that contains spaces. A field with a NULL value is one that has been left blank during record creation!</value>
+  </data>
+  <data name="orderby" xml:space="preserve">
+    <value>The ORDER BY keyword is used to sort the result-set in ascending or descending order.
+
+The ORDER BY keyword sorts the records in ascending order by default(ASC). To sort the records in descending order, use the DESC keyword.</value>
+  </data>
+  <data name="right" xml:space="preserve">
+    <value>The RIGHT JOIN keyword returns all records from the right table (table2), and the matching records from the left table (table1). The result is 0 records from the left side, if there is no match.</value>
+  </data>
+  <data name="sandbox" xml:space="preserve">
+    <value>Sandbox</value>
+  </data>
+  <data name="select" xml:space="preserve">
+    <value>The SELECT statement is used to select data from a database.
+The data returned is stored in a result table, called the result-set.</value>
+  </data>
+  <data name="self" xml:space="preserve">
+    <value>A self join is a regular join, but the table is joined with itself.
+T1 and T2 are different table aliases for the same table.</value>
+  </data>
+  <data name="settings" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="union" xml:space="preserve">
+    <value>The UNION operator is used to combine the result-set of two or more SELECT statements.
+Every SELECT statement within UNION must have the same number of columns
+The columns must also have similar data types
+The columns in every SELECT statement must also be in the same order
+The UNION operator selects only distinct values by default. To allow duplicate values, use UNION ALL.</value>
+  </data>
+  <data name="update" xml:space="preserve">
+    <value>The UPDATE statement is used to modify the existing records in a table. Note: Be careful when updating records in a table!                                                                                                                Notice the WHERE clause in the UPDATE statement. The WHERE clause specifies which record(s) that should be updated. If you omit the WHERE clause, all records in the table will be updated!</value>
+  </data>
+  <data name="where" xml:space="preserve">
+    <value>The WHERE clause is used to filter records.
+It is used to extract only those records that fulfill a specified condition.                                                              Operators: =, &gt;, &lt;, &gt;=, &lt;=, &lt;&gt;,                                                                                                                  BETWEEN - Between a certain range, LIKE - Search for a pattern, IN - To specify multiple possible values for a column</value>
+  </data>
 </root>

@@ -1,0 +1,291 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="account" xml:space="preserve">
+    <value>Обліковий запис</value>
+  </data>
+  <data name="achievements" xml:space="preserve">
+    <value>Досягнення</value>
+  </data>
+  <data name="aliases" xml:space="preserve">
+    <value>Псевдоніми SQL використовуються для надання таблиці або стовпця в таблиці тимчасового імені.
+Псевдоніми часто використовуються, щоб зробити імена стовпців більш читабельними.
+Псевдонім існує лише на час виконання цього запиту.
+Псевдонім створюється за допомогою ключового слова AS.</value>
+  </data>
+  <data name="andornot" xml:space="preserve">
+    <value>Оператор WHERE можна поєднувати з операторами AND, OR та NOT. Оператори І та АБО використовуються для фільтрації записів на основі кількох умов. Оператор NOT відображає запис, якщо умова(и) НЕ ІСТИНА.</value>
+  </data>
+  <data name="anyall" xml:space="preserve">
+    <value>Оператори ANY та ALL дозволяють виконувати порівняння між значенням одного стовпця та діапазоном інших значень.
+                                                                                                                                                                      ANY оператор:
+в результаті повертає логічне значення
+повертає TRUE, якщо ANY із значень підзапиту відповідає умові
+ANY означає, що умова буде істинною, якщо операція істинна для будь-якого зі значень у діапазоні.
+                                                                                                                                                          Оператор ALL:
+в результаті повертає логічне значення
+повертає TRUE, якщо УСІ значення підзапиту відповідають умові
+використовується з операторами SELECT, WHERE і HAVING
+ALL означає, що умова буде істинною, лише якщо операція істинна для всіх значень у діапазоні.</value>
+  </data>
+  <data name="between" xml:space="preserve">
+    <value>Оператор BETWEEN вибирає значення в межах заданого діапазону. Значеннями можуть бути числа, текст або дати.
+
+Оператор BETWEEN включає в себе значення початку та кінця.</value>
+  </data>
+  <data name="case" xml:space="preserve">
+    <value>Оператор CASE проходить через умови і повертає значення, коли виконується перша умова (наприклад, оператор if-then-else). Отже, як тільки умова буде істинною, вона припинить читання та поверне результат. Якщо жодні умови не відповідають дійсності, він повертає значення в пропозиції ELSE.
+
+Якщо немає частини ELSE і жодних умов не відповідає дійсності, він повертає NULL.</value>
+  </data>
+  <data name="constructor" xml:space="preserve">
+    <value>Конструктор</value>
+  </data>
+  <data name="delete" xml:space="preserve">
+    <value>Оператор DELETE використовується для видалення наявних записів у таблиці. Примітка. Будьте обережні, видаляючи записи в таблиці! Зверніть увагу на оператор WHERE в операторі DELETE. Оператор WHERE вказує, які записи(и) слід видалити. Якщо ви пропустите оператор WHERE, усі записи в таблиці будуть видалені! Можна видалити всі рядки в таблиці, не видаляючи таблицю. Це означає, що структура таблиці, атрибути та індекси залишаться незмінними</value>
+  </data>
+  <data name="distinct" xml:space="preserve">
+    <value>Оператор SELECT DISTINCT використовується для повернення лише різних (різних) значень.
+
+Усередині таблиці стовпець часто містить багато повторюваних значень; а іноді вам потрібно лише перерахувати різні (розрізнені) значення.</value>
+  </data>
+  <data name="exist" xml:space="preserve">
+    <value>Оператор EXISTS використовується для перевірки наявності будь-якого запису в підзапиті.
+
+Оператор EXISTS повертає TRUE, якщо підзапит повертає один або кілька записів.</value>
+  </data>
+  <data name="from" xml:space="preserve">
+    <value>Оператор FROM використовується, щоб вказати, яку таблицю вибрати або видалити дані.                                 
+Наступний оператор SQL вибирає стовпці "CustomerName" і "City" з таблиці "Customers":</value>
+  </data>
+  <data name="full" xml:space="preserve">
+    <value>Ключове слово FULL OUTER JOIN повертає всі записи, якщо є відповідність у лівих (таблиця1) або правих (таблиця2) записах таблиці.
+
+Порада: FULL OUTER JOIN і FULL JOIN - те саме.</value>
+  </data>
+  <data name="functions" xml:space="preserve">
+    <value>Функція COUNT() повертає кількість рядків, яка відповідає заданому критерію.
+
+Функція AVG() повертає середнє значення числового стовпця.
+
+Функція SUM() повертає загальну суму числового стовпця.</value>
+  </data>
+  <data name="groupby" xml:space="preserve">
+    <value>Оператор GROUP BY групує рядки з однаковими значеннями в підсумкові рядки, наприклад "знайти кількість клієнтів у кожній країні".
+
+Оператор GROUP BY часто використовується з агрегатними функціями (COUNT(), MAX(), MIN(), SUM(), AVG()) для групування набору результатів за одним або кількома стовпцями.</value>
+  </data>
+  <data name="guide" xml:space="preserve">
+    <value>Гайд</value>
+  </data>
+  <data name="having" xml:space="preserve">
+    <value>Оператор HAVING було додано до SQL, оскільки ключове слово WHERE не можна використовувати з агрегатними функціями.</value>
+  </data>
+  <data name="home" xml:space="preserve">
+    <value>Головна сторінка</value>
+  </data>
+  <data name="in" xml:space="preserve">
+    <value>Оператор IN дозволяє вказати кілька значень у операторі WHERE.
+
+Оператор IN – це скорочення для кількох умов АБО.</value>
+  </data>
+  <data name="inner" xml:space="preserve">
+    <value>Ключове слово INNER JOIN вибирає записи, які мають відповідні значення в обох таблицях.</value>
+  </data>
+  <data name="insertinto" xml:space="preserve">
+    <value>Оператор INSERT INTO використовується для вставки нових записів у таблицю. Записати оператор INSERT INTO можна двома способами:
+
+1. Вкажіть імена стовпців і значення, які потрібно вставити.                                                              2. Якщо ви додаєте значення для всіх стовпців таблиці, вам не потрібно вказувати імена стовпців у запиті SQL. Однак переконайтеся, що порядок значень відповідає порядку стовпців у таблиці. Тут синтаксис INSERT INTO буде таким:</value>
+  </data>
+  <data name="join" xml:space="preserve">
+    <value>Речення JOIN використовується для об’єднання рядків з двох або більше таблиць на основі пов’язаного стовпця між ними.
+(INNER) JOIN: повертає записи, які мають відповідні значення в обох таблицях
+ЛІВЕ (ЗОВНІШНЄ) ПРИЄДНАННЯ: повертає всі записи з лівої таблиці та відповідні записи з правої таблиці
+ПРАВО (ЗОВНІШНЄ) ПРИЄДНАННЯ: повертає всі записи з правої таблиці та відповідні записи з лівої таблиці
+ПОВНЕ (ЗОВНІШНЄ) ПРИЄДНАННЯ: повертає всі записи, якщо є збіг у лівій або правій таблиці</value>
+  </data>
+  <data name="left" xml:space="preserve">
+    <value>Ключове слово LEFT JOIN повертає всі записи з лівої таблиці (таблиця1) і відповідні записи з правої таблиці (таблиця2). Результатом буде 0 записів з правого боку, якщо немає відповідності.</value>
+  </data>
+  <data name="like" xml:space="preserve">
+    <value>Оператор LIKE використовується в оператор WHERE для пошуку вказаного шаблону в стовпці.
+
+Є два символи підстановки, які часто використовуються разом з оператором LIKE:
+
+ Знак відсотка (%) означає нуль, один або кілька символів
+ Знак підкреслення (_) позначає один, один символ</value>
+  </data>
+  <data name="limit" xml:space="preserve">
+    <value>Оператор  LIMIT використовується для визначення кількості записів, які повертаються.
+
+Оператор LIMIT корисно для великих таблиць з тисячами записів. Повернення великої кількості записів може вплинути на продуктивність.</value>
+  </data>
+  <data name="lvl" xml:space="preserve">
+    <value>Рівні</value>
+  </data>
+  <data name="lvlconstructor" xml:space="preserve">
+    <value>Конструктор рівнів</value>
+  </data>
+  <data name="minmax" xml:space="preserve">
+    <value>Функція MIN() повертає найменше значення вибраного стовпця.
+
+Функція MAX() повертає найбільше значення вибраного стовпця.</value>
+  </data>
+  <data name="null" xml:space="preserve">
+    <value>Поле зі значенням NULL – це поле без значення.
+
+Якщо поле в таблиці необов’язкове, можна вставити новий запис або оновити запис без додавання значення до цього поля. Потім поле буде збережено зі значенням NULL. Примітка: значення NULL відрізняється від нульового значення або поля, яке містить пробіли. Поле зі значенням NULL – це поле, яке було залишено порожнім під час створення запису!</value>
+  </data>
+  <data name="orderby" xml:space="preserve">
+    <value>Ключове слово ORDER BY використовується для сортування набору результатів у порядку зростання або спадання.
+
+Ключове слово ORDER BY сортує записи в порядку зростання за замовчуванням (ASC). Щоб відсортувати записи в порядку спадання, використовуйте ключове слово DESC.</value>
+  </data>
+  <data name="right" xml:space="preserve">
+    <value>Ключове слово RIGHT JOIN повертає всі записи з правої таблиці (таблиця2) і відповідні записи з лівої таблиці (таблиця1). Результатом є 0 записів з лівого боку, якщо немає збігу.</value>
+  </data>
+  <data name="sandbox" xml:space="preserve">
+    <value>Пісочниця</value>
+  </data>
+  <data name="select" xml:space="preserve">
+    <value>Оператор SELECT використовується для вибору даних з бази даних.                                                         Повернені дані зберігаються в таблиці результатів, яка називається набір результатів.</value>
+  </data>
+  <data name="self" xml:space="preserve">
+    <value>Самооб’єднання – це звичайне з’єднання, але таблиця об’єднується сама з собою.
+T1 і T2 – різні псевдоніми таблиць для однієї таблиці.</value>
+  </data>
+  <data name="settings" xml:space="preserve">
+    <value>Налаштування</value>
+  </data>
+  <data name="union" xml:space="preserve">
+    <value>Оператор UNION використовується для поєднання набору результатів з двох або більше операторів SELECT.
+
+Кожен оператор SELECT в UNION повинен мати однакову кількість стовпців
+Стовпці також повинні мати подібні типи даних
+Стовпці в кожній інструкції SELECT також мають бути в одному порядку
+
+Оператор UNION за замовчуванням вибирає лише різні значення. Щоб дозволити повторювані значення, використовуйте UNION ALL.</value>
+  </data>
+  <data name="update" xml:space="preserve">
+    <value>Оператор UPDATE використовується для зміни наявних записів у таблиці. Примітка. Будьте обережні під час оновлення записів у таблиці! Зверніть увагу на оператор WHERE в операторі UPDATE. Оператор WHERE вказує, які записи(и) потрібно оновити. Якщо ви пропустите оператор WHERE, усі записи в таблиці будуть оновлені!</value>
+  </data>
+  <data name="where" xml:space="preserve">
+    <value>Оператор WHERE використовується для фільтрації записів. Він використовується для вилучення лише тих записів, які відповідають заданій умові. Оператори: =, &gt;, &lt;, &gt;=, &lt;=, &lt;&gt;, BETWEEN - Між певним діапазоном, LIKE - Пошук шаблону, IN - Щоб вказати декілька можливих значень для стовпця</value>
+  </data>
+</root>

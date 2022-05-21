@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WPFUIKitProfessional.Themes;
 using WPFUIKitProfessional.Pages;
+using Haley.Utils;
 
 namespace WPFUIKitProfessional
 {
@@ -25,7 +26,26 @@ namespace WPFUIKitProfessional
         public MainWindow()
         {
             InitializeComponent();
+
+            // Culture
+            LangUtils.Register();
+            ChangeCulture("en");
+            Languages.Items.Add("en");
+            Languages.Items.Add("uk");
+            // ----------------------
         }
+
+        #region Culture
+        public static void ChangeCulture(string code)
+        {
+            LangUtils.ChangeCulture(code);
+        }
+
+        private void Language_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ChangeCulture(Languages.SelectedValue.ToString());
+        }
+        #endregion
 
         private void Themes_Click(object sender, RoutedEventArgs e)
         {
