@@ -257,6 +257,9 @@ If a field in a table is optional, it is possible to insert a new record or upda
 
 The ORDER BY keyword sorts the records in ascending order by default(ASC). To sort the records in descending order, use the DESC keyword.</value>
   </data>
+  <data name="PasswordHint" xml:space="preserve">
+    <value>Password</value>
+  </data>
   <data name="right" xml:space="preserve">
     <value>The RIGHT JOIN keyword returns all records from the right table (table2), and the matching records from the left table (table1). The result is 0 records from the left side, if there is no match.</value>
   </data>

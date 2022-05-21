@@ -153,7 +153,9 @@
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\ApplicationContext.cs" />
+    <Compile Include="Models\PasswordBoxMonitor.cs" />
     <Compile Include="Models\User.cs" />
+    <Compile Include="Models\Watermark.cs" />
     <Compile Include="Pages\Levels.xaml.cs">
       <DependentUpon>Levels.xaml</DependentUpon>
     </Compile>
