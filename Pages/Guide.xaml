@@ -4,11 +4,526 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:WPFUIKitProfessional.Pages"
+      xmlns:hm="http://schemas.hpod9.com/haley/mvvm"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Guide" FontFamily="Poppins">
 
     <Border CornerRadius="8" Background="{DynamicResource SecundaryBackgroundColor}">
-        <Label Content="Guide" FontSize="50" FontWeight="Bold" Foreground="{DynamicResource PrimaryTextColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Grid>
+            <ScrollViewer>
+                <StackPanel>
+
+                    <Expander Style="{DynamicResource ExpanderStyle}" Header="SELECT">
+                        <StackPanel Orientation="Vertical">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                                <TextBlock  Style="{DynamicResource TextBlockDefinition}"
+                                                        Text="{hm:Lang select}"/>
+
+                                <Border Style="{DynamicResource CodeStyle}">
+                                    <TextBlock Style="{DynamicResource TextBlockCode}"
+                                                           Text="SELECT column1, column2, ...
+                                                           FROM table_name;"/>
+                                </Border>
+                                <Border Style="{DynamicResource CodeStyle}">
+                                    <TextBlock Style="{DynamicResource TextBlockCode}"
+                                                           Text="SELECT * FROM table_name;"/>
+                                </Border>
+                            </StackPanel>
+                            <Expander Style="{DynamicResource ExpanderNestedStyle}" Header="SELECT DISTINCT">
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                                    <TextBlock  Style="{DynamicResource TextBlockDefinition}"
+                                                    Text="{hm:Lang distinct}"/>
+
+                                    <Border Style="{DynamicResource CodeStyle}">
+                                        <TextBlock Style="{DynamicResource TextBlockCode}"
+                                                       Text="SELECT DISTINCT 
+                                                            column1, column2, ...
+                                                            FROM table_name;"/>
+                                    </Border>
+                                </StackPanel>
+                            </Expander>
+                        </StackPanel>
+                    </Expander>
+
+                    <Expander Style="{DynamicResource ExpanderStyle}" Header="FROM">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                            <TextBlock  Style="{DynamicResource TextBlockDefinition}"
+                                                    Text="{hm:Lang from}"/>
+
+                            <Border Style="{DynamicResource CodeStyle}">
+                                <TextBlock Style="{DynamicResource TextBlockCode}"
+                                                       Text="SELECT CustomerName, City 
+                                                             FROM Customers;"/>
+                            </Border>
+                        </StackPanel>
+                    </Expander>
+
+                    <Expander Style="{DynamicResource ExpanderStyle}" Header="WHERE">
+                        <StackPanel Orientation="Vertical">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                                <TextBlock Style="{DynamicResource TextBlockDefinition}"
+                                                        Text="{hm:Lang where}"/>
+                                <Border Style="{DynamicResource CodeStyle}">
+                                    <TextBlock Style="{DynamicResource TextBlockCode}"
+                                                           Text="SELECT column1, column2, ...
+                                                                 FROM table_name
+                                                                 WHERE condition;"/>
+                                </Border>
+                            </StackPanel>
+                            <Expander Style="{DynamicResource ExpanderNestedStyle}" Header="AND OR NOT">
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                                    <TextBlock  Style="{DynamicResource TextBlockDefinition}"
+                                                    Text="{hm:Lang andornot}"/>
+
+                                    <Border Style="{DynamicResource CodeStyle}">
+                                        <TextBlock Style="{DynamicResource TextBlockCode}"
+                                                       Text="SELECT column1, column2, ...
+                                                             FROM table_name
+                                                             WHERE NOT condition1 AND condition2;"/>
+                                    </Border>
+                                    <Border Style="{DynamicResource CodeStyle}">
+                                        <TextBlock Style="{DynamicResource TextBlockCode}"
+                                                       Text="SELECT column1, column2, ...
+                                                             FROM table_name
+                                                             WHERE condition1 OR condition2;"/>
+                                    </Border>
+                                </StackPanel>
+                            </Expander>
+                        </StackPanel>
+                    </Expander>
+
+                    <Expander Style="{DynamicResource ExpanderStyle}" Header="ORDER BY">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                            <TextBlock  Style="{DynamicResource TextBlockDefinition}"
+                                                    Text="{hm:Lang orderby}"/>
+
+                            <Border Style="{DynamicResource CodeStyle}">
+                                <TextBlock Style="{DynamicResource TextBlockCode}"
+                                                       Text="SELECT column1, column2, ...
+                                                             FROM table_name
+                                                             ORDER BY column1, column2, ... ASC|DESC;"/>
+                            </Border>
+                            <Border Style="{DynamicResource CodeStyle}">
+                                <TextBlock Style="{DynamicResource TextBlockCode}"
+                                                       Text="SELECT * FROM Customers
+                                                             ORDER BY Country;"/>
+                            </Border>
+                        </StackPanel>
+                    </Expander>
+
+                    <Expander Style="{DynamicResource ExpanderStyle}" Header="INSERT INTO">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                            <TextBlock  Style="{DynamicResource TextBlockDefinition}"
+                                                    Text="{hm:Lang insertinto}"/>
+
+                            <Border Style="{DynamicResource CodeStyle}">
+                                <TextBlock Style="{DynamicResource TextBlockCode}"
+                                                       Text="INSERT INTO table_name (column1, column2, column3, ...)
+                                                             VALUES (value1, value2, value3, ...);"/>
+                            </Border>
+                            <Border Style="{DynamicResource CodeStyle}">
+                                <TextBlock Style="{DynamicResource TextBlockCode}"
+                                                       Text="INSERT INTO table_name
+                                                             VALUES (value1, value2, value3, ...);"/>
+                            </Border>
+                        </StackPanel>
+                    </Expander>
+
+                    <Expander Style="{DynamicResource ExpanderStyle}" Header="NULL VALUES">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                            <TextBlock  Style="{DynamicResource TextBlockDefinition}"
+                                                    Text="{hm:Lang null}"/>
+
+                            <Border Style="{DynamicResource CodeStyle}">
+                                <TextBlock Style="{DynamicResource TextBlockCode}"
+                                                       Text="SELECT column_names
+                                                             FROM table_name
+                                                             WHERE column_name IS NULL;"/>
+                            </Border>
+                            <Border Style="{DynamicResource CodeStyle}">
+                                <TextBlock Style="{DynamicResource TextBlockCode}"
+                                                       Text="SELECT column_names
+                                                             FROM table_name
+                                                             WHERE column_name IS NOT NULL;"/>
+                            </Border>
+                        </StackPanel>
+                    </Expander>
+
+                    <Expander Style="{DynamicResource ExpanderStyle}" Header="UPDATE">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                            <TextBlock  Style="{DynamicResource TextBlockDefinition}"
+                                                    Text="{hm:Lang update}"/>
+
+                            <Border Style="{DynamicResource CodeStyle}">
+                                <TextBlock Style="{DynamicResource TextBlockCode}"
+                                                       Text="UPDATE table_name
+                                                             SET column1 = value1, column2 = value2, ...
+                                                             WHERE condition;"/>
+                            </Border>
+                            <Border Style="{DynamicResource CodeStyle}">
+                                <TextBlock Style="{DynamicResource TextBlockCode}"
+                                                       Text="UPDATE Customers
+                                                             SET ContactName='Juan'
+                                                             WHERE Country='Mexico';"/>
+                            </Border>
+                        </StackPanel>
+                    </Expander>
+
+                    <Expander Style="{DynamicResource ExpanderStyle}" Header="DELETE">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                            <TextBlock  Style="{DynamicResource TextBlockDefinition}"
+                                                    Text="{hm:Lang delete}"/>
+
+                            <Border Style="{DynamicResource CodeStyle}">
+                                <TextBlock Style="{DynamicResource TextBlockCode}"
+                                                       Text="DELETE FROM table_name 
+                                                             WHERE condition;"/>
+                            </Border>
+                            <Border Style="{DynamicResource CodeStyle}">
+                                <TextBlock Style="{DynamicResource TextBlockCode}"
+                                                       Text="DELETE FROM table_name;"/>
+                            </Border>
+                        </StackPanel>
+                    </Expander>
+
+                    <Expander Style="{DynamicResource ExpanderStyle}" Header="LIMIT">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                            <TextBlock  Style="{DynamicResource TextBlockDefinition}"
+                                                    Text="{hm:Lang limit}"/>
+
+                            <Border Style="{DynamicResource CodeStyle}">
+                                <TextBlock Style="{DynamicResource TextBlockCode}"
+                                                       Text="SELECT column_name(s)
+                                                             FROM table_name
+                                                             WHERE condition
+                                                             LIMIT number;"/>
+                            </Border>
+                            <Border Style="{DynamicResource CodeStyle}">
+                                <TextBlock Style="{DynamicResource TextBlockCode}"
+                                                       Text="SELECT * 
+                                                             FROM Customers
+                                                             LIMIT 3;"/>
+                            </Border>
+                        </StackPanel>
+                    </Expander>
+
+                    <Expander Style="{DynamicResource ExpanderStyle}" Header="MIN() and MAX() Functions">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                            <TextBlock  Style="{DynamicResource TextBlockDefinition}"
+                                                    Text="{hm:Lang minmax}"/>
+
+                            <Border Style="{DynamicResource CodeStyle}">
+                                <TextBlock Style="{DynamicResource TextBlockCode}"
+                                                       Text="SELECT MIN(column_name)
+                                                             FROM table_name
+                                                             WHERE condition;"/>
+                            </Border>
+                            <Border Style="{DynamicResource CodeStyle}">
+                                <TextBlock Style="{DynamicResource TextBlockCode}"
+                                                       Text="SELECT MAX(column_name)
+                                                             FROM table_name
+                                                             WHERE condition;"/>
+                            </Border>
+                        </StackPanel>
+                    </Expander>
+
+                    <Expander Style="{DynamicResource ExpanderStyle}" Header="COUNT(), AVG() and SUM() Functions">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                            <TextBlock  Style="{DynamicResource TextBlockDefinition}"
+                                                    Text="{hm:Lang functions}"/>
+
+                            <Border Style="{DynamicResource CodeStyle}">
+                                <TextBlock Style="{DynamicResource TextBlockCode}"
+                                                       Text="SELECT COUNT(column_name)
+                                                             FROM table_name
+                                                             WHERE condition;"/>
+                            </Border>
+                            <Border Style="{DynamicResource CodeStyle}">
+                                <TextBlock Style="{DynamicResource TextBlockCode}"
+                                                       Text="SELECT SUM/AVG(column_name)
+                                                             FROM table_name
+                                                             WHERE condition;"/>
+                            </Border>
+                        </StackPanel>
+                    </Expander>
+
+                    <Expander Style="{DynamicResource ExpanderStyle}" Header="LIKE">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                            <TextBlock  Style="{DynamicResource TextBlockDefinition}"
+                                                    Text="{hm:Lang like}"/>
+
+                            <Border Style="{DynamicResource CodeStyle}">
+                                <TextBlock Style="{DynamicResource TextBlockCode}"
+                                                       Text="SELECT column1, column2, ...
+                                                             FROM table_name
+                                                             WHERE columnN LIKE pattern;"/>
+                            </Border>
+                            <Border Style="{DynamicResource CodeStyle}">
+                                <TextBlock Style="{DynamicResource TextBlockCode}"
+                                                       Text="SELECT * FROM Customers
+                                                             WHERE CustomerName 
+                                                             LIKE '%a';"/>
+                            </Border>
+                        </StackPanel>
+                    </Expander>
+
+                    <Expander Style="{DynamicResource ExpanderStyle}" Header="IN">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                            <TextBlock  Style="{DynamicResource TextBlockDefinition}"
+                                                    Text="{hm:Lang in}"/>
+
+                            <Border Style="{DynamicResource CodeStyle}">
+                                <TextBlock Style="{DynamicResource TextBlockCode}"
+                                                       Text="SELECT column_name(s)
+                                                             FROM table_name
+                                                             WHERE column_name IN (value1, value2, ...);"/>
+                            </Border>
+                            <Border Style="{DynamicResource CodeStyle}">
+                                <TextBlock Style="{DynamicResource TextBlockCode}"
+                                                       Text="SELECT column_name(s)
+                                                             FROM table_name
+                                                             WHERE column_name IN (SELECT STATEMENT);"/>
+                            </Border>
+                        </StackPanel>
+                    </Expander>
+
+                    <Expander Style="{DynamicResource ExpanderStyle}" Header="BETWEEN">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                            <TextBlock  Style="{DynamicResource TextBlockDefinition}"
+                                                    Text="{hm:Lang between}"/>
+
+                            <Border Style="{DynamicResource CodeStyle}">
+                                <TextBlock Style="{DynamicResource TextBlockCode}"
+                                                       Text="SELECT column_name(s)
+                                                             FROM table_name
+                                                             WHERE column_name BETWEEN value1 AND value2;"/>
+                            </Border>
+                        </StackPanel>
+                    </Expander>
+
+                    <Expander Style="{DynamicResource ExpanderStyle}" Header="Aliases">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                            <TextBlock  Style="{DynamicResource TextBlockDefinition}"
+                                                    Text="{hm:Lang aliases}"/>
+
+                            <Border Style="{DynamicResource CodeStyle}">
+                                <TextBlock Style="{DynamicResource TextBlockCode}"
+                                                       Text="SELECT column_name AS alias_name
+                                                             FROM table_name;"/>
+                            </Border>
+                            <Border Style="{DynamicResource CodeStyle}">
+                                <TextBlock Style="{DynamicResource TextBlockCode}"
+                                                       Text="SELECT column_name(s)
+                                                             FROM table_name AS alias_name;"/>
+                            </Border>
+                        </StackPanel>
+                    </Expander>
+
+                    <Expander Style="{DynamicResource ExpanderStyle}" Header="JOIN">
+                        <StackPanel Orientation="Vertical">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                                <TextBlock  Style="{DynamicResource TextBlockDefinition}"
+                                                        Text="{hm:Lang join}"/>
+
+                                <Border Style="{DynamicResource CodeStyle}" Width="550" MaxWidth="550">
+                                    <TextBlock Style="{DynamicResource TextBlockCode}"
+                                                           Text="SELECT Orders.OrderID, Customers.CustomerName, Orders.OrderDate
+                                                                 FROM Orders                        
+                                                                               INNER JOIN Customers ON Orders.CustomerID=Customers.CustomerID;"/>
+                                </Border>
+                            </StackPanel>
+
+                            <Expander Style="{DynamicResource ExpanderNestedStyle}" Header="INNER JOIN">
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                                    <TextBlock  Style="{DynamicResource TextBlockDefinition}"
+                                                    Text="{hm:Lang inner}"/>
+
+                                    <Border Style="{DynamicResource CodeStyle}" Width="400" MaxWidth="400">
+                                        <TextBlock Style="{DynamicResource TextBlockCode}"
+                                                       Text="SELECT column_name(s)
+                                                             FROM table1
+                                                                     INNER JOIN table2
+                                                                     ON table1.column_name = table2.column_name;"/>
+                                    </Border>
+                                </StackPanel>
+                            </Expander>
+
+                            <Expander Style="{DynamicResource ExpanderNestedStyle}" Header="LEFT JOIN">
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                                    <TextBlock  Style="{DynamicResource TextBlockDefinition}"
+                                                    Text="{hm:Lang left}"/>
+
+                                    <Border Style="{DynamicResource CodeStyle}" Width="400" MaxWidth="400">
+                                        <TextBlock Style="{DynamicResource TextBlockCode}"
+                                                       Text="SELECT column_name(s)
+                                                             FROM table1
+                                                                                  LEFT JOIN table2
+                                                                                  ON table1.column_name = table2.column_name;"/>
+                                    </Border>
+                                </StackPanel>
+                            </Expander>
+
+                            <Expander Style="{DynamicResource ExpanderNestedStyle}" Header="RIGHT JOIN">
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                                    <TextBlock  Style="{DynamicResource TextBlockDefinition}"
+                                                    Text="{hm:Lang right}"/>
+
+                                    <Border Style="{DynamicResource CodeStyle}" Width="400" MaxWidth="400">
+                                        <TextBlock Style="{DynamicResource TextBlockCode}"
+                                                       Text="SELECT column_name(s)
+                                                             FROM table1
+                                                                                    RIGHT JOIN table2
+                                                                                    ON table1.column_name = table2.column_name;"/>
+                                    </Border>
+                                </StackPanel>
+                            </Expander>
+
+                            <Expander Style="{DynamicResource ExpanderNestedStyle}" Header="FULL OUTER JOIN">
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                                    <TextBlock  Style="{DynamicResource TextBlockDefinition}"
+                                                    Text="{hm:Lang full}"/>
+
+                                    <Border Style="{DynamicResource CodeStyle}" Width="400" MaxWidth="400">
+                                        <TextBlock Style="{DynamicResource TextBlockCode}"
+                                                       Text="SELECT column_name(s)
+                                                             FROM table1
+                                                             FULL OUTER JOIN table2
+                                                             ON table1.column_name = table2.column_name
+                                                             WHERE condition;"/>
+                                    </Border>
+                                </StackPanel>
+                            </Expander>
+
+                            <Expander Style="{DynamicResource ExpanderNestedStyle}" Header="SELF JOIN">
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                                    <TextBlock  Style="{DynamicResource TextBlockDefinition}"
+                                                    Text="{hm:Lang self}"/>
+
+                                    <Border Style="{DynamicResource CodeStyle}">
+                                        <TextBlock Style="{DynamicResource TextBlockCode}"
+                                                       Text="SELECT column_name(s)
+                                                             FROM table1 T1, table1 T2
+                                                             WHERE condition;"/>
+                                    </Border>
+                                </StackPanel>
+                            </Expander>
+
+                        </StackPanel>
+                    </Expander>
+
+                    <Expander Style="{DynamicResource ExpanderStyle}" Header="UNION">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                            <TextBlock  Style="{DynamicResource TextBlockDefinition}"
+                                                    Text="{hm:Lang union}"/>
+
+                            <Border Style="{DynamicResource CodeStyle}">
+                                <TextBlock Style="{DynamicResource TextBlockCode}"
+                                                       Text="SELECT column_name(s) FROM table1
+                                                             UNION
+                                                             SELECT column_name(s) FROM table2;"/>
+                            </Border>
+                            <Border Style="{DynamicResource CodeStyle}">
+                                <TextBlock Style="{DynamicResource TextBlockCode}"
+                                                       Text="SELECT column_name(s) FROM table1
+                                                             UNION ALL
+                                                             SELECT column_name(s) FROM table2;"/>
+                            </Border>
+                        </StackPanel>
+                    </Expander>
+
+                    <Expander Style="{DynamicResource ExpanderStyle}" Header="GROUP BY">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                            <TextBlock  Style="{DynamicResource TextBlockDefinition}"
+                                                    Text="{hm:Lang groupby}"/>
+
+                            <Border Style="{DynamicResource CodeStyle}">
+                                <TextBlock Style="{DynamicResource TextBlockCode}"
+                                                       Text="SELECT column_name(s)
+                                                             FROM table_name
+                                                             WHERE condition
+                                                             GROUP BY column_name(s)
+                                                             ORDER BY column_name(s);"/>
+                            </Border>
+                            <Border Style="{DynamicResource CodeStyle}">
+                                <TextBlock Style="{DynamicResource TextBlockCode}"
+                                                       Text="SELECT COUNT(CustomerID), Country
+                                                             FROM Customers
+                                                             GROUP BY Country;"/>
+                            </Border>
+                        </StackPanel>
+                    </Expander>
+
+                    <Expander Style="{DynamicResource ExpanderStyle}" Header="HAVING">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                            <TextBlock  Style="{DynamicResource TextBlockDefinition}"
+                                                    Text="{hm:Lang having}"/>
+
+                            <Border Style="{DynamicResource CodeStyle}"  Width="450" MaxWidth="450">
+                                <TextBlock Style="{DynamicResource TextBlockCode}"
+                                                       Text="SELECT column_name(s) FROM table_name
+                                                            WHERE condition
+                                                                                    GROUP BY column_name(s) HAVING condition
+                                                            ORDER BY column_name(s);"/>
+                            </Border>
+                        </StackPanel>
+                    </Expander>
+
+                    <Expander Style="{DynamicResource ExpanderStyle}" Header="EXIST">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                            <TextBlock  Style="{DynamicResource TextBlockDefinition}"
+                                                    Text="{hm:Lang exist}"/>
+
+                            <Border Style="{DynamicResource CodeStyle}" Width="550" MaxWidth="550">
+                                <TextBlock Style="{DynamicResource TextBlockCode}"
+                                                       Text="SELECT column_name(s)
+                                                                                  FROM table_name WHERE EXISTS
+                                                             (SELECT column_name FROM table_name WHERE condition);"/>
+                            </Border>
+                        </StackPanel>
+                    </Expander>
+
+                    <Expander Style="{DynamicResource ExpanderStyle}" Header="ANY ALL">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                            <TextBlock  Style="{DynamicResource TextBlockDefinition}"
+                                                    Text="{hm:Lang anyall}"/>
+
+                            <Border Style="{DynamicResource CodeStyle}">
+                                <TextBlock Style="{DynamicResource TextBlockCode}"
+                                                       Text="SELECT column_name(s)
+                                                             FROM table_name
+                                                             WHERE column_name operator ANY
+                                                             (SELECT column_name
+                                                             FROM table_name
+                                                             WHERE condition);"/>
+                            </Border>
+                            <Border Style="{DynamicResource CodeStyle}">
+                                <TextBlock Style="{DynamicResource TextBlockCode}"
+                                                       Text="SELECT ALL column_name(s)
+                                                             FROM table_name
+                                                             WHERE condition;"/>
+                            </Border>
+                        </StackPanel>
+                    </Expander>
+
+                    <Expander Style="{DynamicResource ExpanderStyle}" Header="CASE">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                            <TextBlock  Style="{DynamicResource TextBlockDefinition}"
+                                                    Text="{hm:Lang case}"/>
+
+                            <Border Style="{DynamicResource CodeStyle}"  Width="350" MaxWidth="350">
+                                <TextBlock Style="{DynamicResource TextBlockCode}"
+                                                       Text="CASE
+                                                                                      WHEN condition1 THEN result1
+                                                                WHEN condition2 THEN result2
+                                                                WHEN conditionN THEN resultN
+                                                                ELSE result
+                                                                                   END;"/>
+                            </Border>
+                        </StackPanel>
+                    </Expander>
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
     </Border>
 </Page>

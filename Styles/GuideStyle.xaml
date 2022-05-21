@@ -1,0 +1,140 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- TabItemStyle -->
+    <Style x:Key="TabItemStyle" TargetType="{x:Type TabItem}">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextColor}"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="Margin" Value="0 0 5 0"/>
+        <Setter Property="FontSize" Value="17"/>
+        <Setter Property="Width" Value="190"/>
+        <Setter Property="Padding" Value="10 10"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="VerticalAlignment" Value="Top"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type TabItem}">
+                    <Grid SnapsToDevicePixels="True">
+                        <Border CornerRadius="10"
+                                    Background="{TemplateBinding Background}"
+                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    Margin="{TemplateBinding Margin}"/>
+                        <ContentPresenter   HorizontalAlignment="Center"
+                                                VerticalAlignment="Center"
+                                                SnapsToDevicePixels="True"
+                                                RecognizesAccessKey="True"
+                                                Margin="{TemplateBinding Padding}"
+                                                ContentSource="Header"
+                                                Focusable="False"/>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="{DynamicResource PrimaryBackgroundColor}"/>
+                            <Setter Property="Foreground" Value="{DynamicResource PrimaryTextColor}"/>
+                        </Trigger>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="Background" Value="{DynamicResource PrimaryBackgroundColor}"/>
+                            <Setter Property="Foreground" Value="{DynamicResource PrimaryTextColor}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- TabControlStyle -->
+    <Style x:Key="TabControlStyle" TargetType="TabControl">
+        <Setter Property="Background" Value="{DynamicResource PrimaryBackgroundColor}"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="Padding" Value="5"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="TabControl">
+                    <Grid SnapsToDevicePixels="True">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <TabPanel Grid.Row="0"
+                                      Background="Transparent"
+                                      IsItemsHost="True"
+                                      HorizontalAlignment="Center"/>
+                        <Border Grid.Row="1"
+                                    CornerRadius="5"
+                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    Background="{TemplateBinding Background}">
+                            <ContentPresenter ContentSource="SelectedContent" 
+                                                  SnapsToDevicePixels="True"
+                                                  Margin="{TemplateBinding Padding}"/>
+                        </Border>
+
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- TextBlockDefinition -->
+    <Style x:Key="TextBlockDefinition" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextColor}"/>
+        <Setter Property="FontSize" Value="15"/>
+        <Setter Property="TextWrapping" Value="Wrap"/>
+        <Setter Property="Width" Value="600"/>
+        <Setter Property="MinWidth" Value="600"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+    </Style>
+
+    <!-- TextBlockCode -->
+    <Style x:Key="TextBlockCode" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="#000"/>
+        <Setter Property="FontSize" Value="15"/>
+        <Setter Property="TextWrapping" Value="Wrap"/>
+        <Setter Property="FontStyle" Value="Italic"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+    </Style>
+
+    <!-- CodeStyle -->
+    <Style x:Key="CodeStyle" TargetType="Border">
+        <Setter Property="MaxWidth" Value="250"/>
+        <Setter Property="Width" Value="250"/>
+        <Setter Property="Background" Value="White"/>
+        <Setter Property="Margin" Value="200 10 0 0"/>
+        <Setter Property="BorderThickness" Value="5,1,1,1"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource PrimaryTextColor}"/>
+        <Setter Property="CornerRadius" Value="5"/>
+        <Setter Property="Padding" Value="10"/>
+        <Setter Property="Margin" Value="50,10,10,10"/>
+        <Setter Property="Height" Value="auto"/>
+    </Style>
+
+    <!-- Expander -->
+    <Style x:Key="ExpanderStyle" TargetType="{x:Type Expander}">
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextColor}"/>
+        <Setter Property="FontSize" Value="35"/>
+        <Setter Property="Margin" Value="0 10 0 0"/>
+        <Setter Property="Padding" Value="10 0 10 10"/>
+        <Setter Property="BorderThickness" Value="0,0,0,2"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBackgroundColor}"/>
+        <Setter Property="MaxWidth" Value="1250"/>
+    </Style>
+
+    <!-- ExpanderNested -->
+    <Style x:Key="ExpanderNestedStyle" TargetType="Expander">
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextColor}"/>
+        <Setter Property="FontSize" Value="25"/>
+        <Setter Property="Margin" Value="0,20,0,0"/>
+        <Setter Property="Padding" Value="0 0 10 10"/>
+        <Setter Property="MaxWidth" Value="1250"/>
+    </Style>
+
+</ResourceDictionary>
