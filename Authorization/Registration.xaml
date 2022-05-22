@@ -13,7 +13,7 @@
         <StackPanel>
             <Image Source="/Authorization/LoginIcon.png" Width="150" Margin="0 60 0 40"/>
             <AdornerDecorator Margin="0 0 0 10">
-                <TextBox Padding="2" Width="300" Height="30" Margin="3" FontSize="17" Background="{DynamicResource SecundaryBackgroundColor}">
+                <TextBox x:Name="login" Padding="2" Width="300" Height="30" Margin="3" FontSize="17" Background="{DynamicResource SecundaryBackgroundColor}">
                     <controls:WatermarkService.Watermark>
                         <TextBlock FontSize="15" Foreground="#b3b3b3" FontWeight="SemiBold" Padding="0 0 0 5">Login</TextBlock>
                     </controls:WatermarkService.Watermark>
@@ -90,11 +90,12 @@
                 </PasswordBox.Style>
             </PasswordBox>
 
-
+            <TextBlock x:Name="alert" FontSize="15" Foreground="Red" Margin="44 5 0 0"></TextBlock>
 
             <Button Style="{DynamicResource Authorization}" 
                     MouseEnter="LoginBtn_MouseEnter"
                     MouseLeave="LoginBtn_MouseLeave"
+                    Click="Registration_Click"
                     Content="Register"
                     Margin="35 15 35 2"/>
 

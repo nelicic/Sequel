@@ -1,27 +1,31 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Data.Entity;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using WPFUIKitProfessional.Models;
 
 namespace WPFUIKitProfessional.Authorization
 {
-    /// <summary>
-    /// Логика взаимодействия для Account.xaml
-    /// </summary>
     public partial class Account : Window
     {
+        ApplicationContext db = new ApplicationContext();
         public Account()
         {
             InitializeComponent();
+
+            db = new ApplicationContext();
+            db.Users.Load();
+            DataContext = db.Users.Local.ToBindingList();
+        }
+
+        public void AddUser(User user)
+        {
+            db.Users.Add(user);
+            db.SaveChanges();
+        }
+        public async Task<bool> IsAuthorized(string login)
+        {
+            var containsLogin = await db.Users.AnyAsync(x => x.Login == login);
+            return containsLogin;
         }
         public void Registration()
         {

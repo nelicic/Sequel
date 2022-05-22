@@ -55,6 +55,8 @@
                 </PasswordBox.Style>
             </PasswordBox>
 
+            <TextBlock x:Name="alert" FontSize="15" Foreground="Red" Margin="44 5 0 0"></TextBlock>
+
             <Button Style="{DynamicResource Authorization}" 
                     MouseEnter="LoginBtn_MouseEnter"
                     MouseLeave="LoginBtn_MouseLeave"/>
