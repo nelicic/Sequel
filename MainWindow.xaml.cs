@@ -12,8 +12,9 @@ namespace WPFUIKitProfessional
     {
         public MainWindow()
         {
-            Login login = new Login();
-            login.Show();
+            Account account = new Account();
+            account.Show();
+            account.authorizationFrameContent.Navigate(new Login());
 
             InitializeComponent();
 
