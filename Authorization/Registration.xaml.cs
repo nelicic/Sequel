@@ -1,6 +1,8 @@
-﻿using System.Windows;
+﻿using System.Threading;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
 using WPFUIKitProfessional.Models;
 
 namespace WPFUIKitProfessional.Authorization
@@ -25,11 +27,13 @@ namespace WPFUIKitProfessional.Authorization
         {
             if (login.Text == string.Empty || pb.Password == string.Empty || pb2.Password == string.Empty)
             {
+                alert.Foreground = Brushes.Red;
                 alert.Text = "Fill all fields";
                 return;
             }
             if (!pb.Password.Equals(pb2.Password) && pb.Password != string.Empty)
             {
+                alert.Foreground = Brushes.Red;
                 alert.Text = "Passwords are different";
                 return;
             }
@@ -40,10 +44,15 @@ namespace WPFUIKitProfessional.Authorization
             if (!(account.IsAuthorized(login.Text).Result))
             {
                 account.AddUser(new User(login.Text, pb.Password));
-                alert.Text = string.Empty;
+                alert.Foreground = Brushes.Green;
+                alert.Text = "Successful registration";
             }
             else
+            {
+                alert.Foreground = Brushes.Red;
                 alert.Text = "Login is already used";
+            }
+                
         }
     }
 }
