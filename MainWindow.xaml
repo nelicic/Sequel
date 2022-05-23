@@ -46,7 +46,6 @@
                         <Separator Margin="20 20" Background="{DynamicResource TertiaryBackgroundColor}"/>
 
                         <RadioButton x:Name="rdNotifications" Content="{hm:Lang achievements}" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource notifications}" Margin="0 1 0 1"/>
-                        <RadioButton x:Name="rdSettings" Content="{hm:Lang settings}" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource settings}"/>
 
                     </StackPanel>
 
@@ -89,7 +88,6 @@
                         </Button.Style>
                     </Button>
                     <Button x:Name="btnMinimize" Style="{DynamicResource IconButtonsStyle}" Content="{DynamicResource minimize}" Click="btnMinimize_Click"/>
-                    <ComboBox  Height="40" Name="Languages" SelectionChanged="Language_SelectionChanged"/>
                 </StackPanel>
                 <!-- End: Button Close | Restore | Minimize -->
                 

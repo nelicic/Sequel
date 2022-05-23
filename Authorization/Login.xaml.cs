@@ -39,8 +39,14 @@ namespace WPFUIKitProfessional.Authorization
             {
                 if (account.IsAuthorized(login.Text, pb.Password).Result)
                 {
-                    (App.Current.MainWindow as MainWindow).CurrentUser = account.GetUser(login.Text, pb.Password).Result;
-                    (App.Current.MainWindow as MainWindow).Visibility = Visibility.Visible;
+                    var MainWindow = (App.Current.MainWindow as MainWindow);
+                    MainWindow.CurrentUser = account.GetUser(login.Text, pb.Password).Result;
+                    MainWindow.Visibility = Visibility.Visible;
+
+                    MainWindow.Users.id.Text = MainWindow.CurrentUser.Id.ToString();
+                    MainWindow.Users.login.Text = MainWindow.CurrentUser.Login;
+                    MainWindow.Users.date.Text = MainWindow.CurrentUser.Date.ToString();
+
                     account.Close();
                 }
             }

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace WPFUIKitProfessional.Models
 {
@@ -8,11 +9,13 @@ namespace WPFUIKitProfessional.Models
         public int Id { get; set; }
         public string Login { get; set; }
         public string Password { get; set; }
+        public DateTime Date { get; set; }
         public User() { }
         public User(string login, string password)
         {
             Login = login;
             Password = password;
+            Date = DateTime.Now;
         }
     }
 }

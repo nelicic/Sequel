@@ -9,10 +9,86 @@
       Title="Users" FontFamily="Poppins">
 
     <Grid Background="{DynamicResource PrimaryBackgroundColor}">
-        <StackPanel>
-            <TextBlock Name="id" Height="20" Margin="10" Width="300" Background="{DynamicResource SecundaryBackgroundColor}"></TextBlock>
-            <TextBlock Name="login" Height="20" Margin="10" Width="300" Background="{DynamicResource SecundaryBackgroundColor}"></TextBlock>
-            <TextBlock Name="password" Height="20" Margin="10" Width="300" Background="{DynamicResource SecundaryBackgroundColor}"></TextBlock>
+        <StackPanel Orientation="Horizontal">
+            <StackPanel Margin="50 100 0 0">
+                <Image Source="/Authorization/LoginIcon.png" Width="180" Margin="150 20 20 20" />
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="ID:" 
+                               FontSize="25" 
+                               Foreground="{DynamicResource PrimaryTextColor}" 
+                               Height="30"
+                               Margin="10"
+                               Width="110"/>
+                    
+                    <TextBlock Name="id"
+                               FontSize="25"
+                               Foreground="{DynamicResource PrimaryTextColor}" 
+                               Height="30"
+                               Margin="10"
+                               Width="300"
+                               Padding="2"
+                               Background="{DynamicResource SecundaryBackgroundColor}"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Login:"
+                               FontSize="25"
+                               Foreground="{DynamicResource PrimaryTextColor}" 
+                               Height="30" 
+                               Margin="10" 
+                               Width="110"/>
+
+                    <TextBlock Name="login" 
+                               FontSize="25" 
+                               Foreground="{DynamicResource PrimaryTextColor}" 
+                               Height="30" 
+                               Margin="10" 
+                               Width="300" 
+                               Padding="2"
+                               Background="{DynamicResource SecundaryBackgroundColor}"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Date:"
+                               FontSize="25"
+                               Foreground="{DynamicResource PrimaryTextColor}" 
+                               Height="30" 
+                               Margin="10" 
+                               Width="110"/>
+
+                    <TextBlock Name="date" 
+                               FontSize="25" 
+                               Foreground="{DynamicResource PrimaryTextColor}" 
+                               Height="30" 
+                               Margin="10" 
+                               Width="300" 
+                               Padding="2"
+                               Background="{DynamicResource SecundaryBackgroundColor}"/>
+                </StackPanel>
+
+                <Button Style="{DynamicResource Authorization}" 
+                    MouseEnter="Button_MouseEnter"
+                    MouseLeave="Button_MouseLeave"
+                    Click="Logout_Click"
+                    Margin="140 10 10 10"
+                    Content="Logout"/>
+
+                <ComboBox  IsReadOnly="True"
+                           Text="English"
+                           Height="30" 
+                           Name="Languages" 
+                           Width="300"
+                           Margin="140 10 10 10"
+                           SelectionChanged="Languages_SelectionChanged">
+                </ComboBox>
+
+            </StackPanel>
+
+            <StackPanel>
+                
+                <!-- STATISTICS -->
+                
+            </StackPanel>
         </StackPanel>
     </Grid>
 </Page>
