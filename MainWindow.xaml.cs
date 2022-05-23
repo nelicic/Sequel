@@ -11,13 +11,24 @@ namespace WPFUIKitProfessional
     public partial class MainWindow : Window
     {
         public User CurrentUser { get; set; }
+        public Constructor Constructor { get; set; }
+        public Guide Guide { get; set; }
+        public Levels Levels { get; set; }
+        public Users Users { get; set; }
+
         public MainWindow()
         {
+            Constructor = new Constructor();
+            Guide = new Guide();
+            Levels = new Levels();
+            Users = new Users();
+
             Account account = new Account();
             account.Show();
             account.authorizationFrameContent.Navigate(new Login());
 
             Visibility = Visibility.Hidden;
+            //Visibility = Visibility.Visible;
             InitializeComponent();
 
             // Culture
@@ -68,35 +79,35 @@ namespace WPFUIKitProfessional
 
         private void rdLevels_Click(object sender, RoutedEventArgs e)
         {
-            frameContent.Navigate(new Levels());
+            frameContent.Navigate(Levels);
         }
 
         private void rdGuide_Click(object sender, RoutedEventArgs e)
         {
-            frameContent.Navigate(new Guide());
+            frameContent.Navigate(Guide);
         }
 
         private void rdConstructor_Click(object sender, RoutedEventArgs e)
         {
-            frameContent.Navigate(new Constructor());
+            frameContent.Navigate(Constructor);
         }
 
         private void rdUsers_Click(object sender, RoutedEventArgs e)
         {
-            Users usersPage = new Users();
+            // probably don't need it
             User user = (App.Current.MainWindow as MainWindow).CurrentUser;
             if (user != null)
             {
-                usersPage.id.Text = user.Id.ToString();
-                usersPage.login.Text = user.Login;
-                usersPage.password.Text = user.Password;
+                Users.id.Text = user.Id.ToString();
+                Users.login.Text = user.Login;
+                Users.date.Text = user.Date.ToString();
             }
             else
             {
-                usersPage.id.Text = usersPage.login.Text = usersPage.password.Text = string.Empty;
+                Users.id.Text = Users.login.Text = Users.date.Text = string.Empty;
             }
-            
-            frameContent.Navigate(usersPage);
+            // -----------------------
+            frameContent.Navigate(Users);
         }
     }
 }

@@ -15,9 +15,6 @@ using System.Windows.Shapes;
 
 namespace WPFUIKitProfessional.Pages
 {
-    /// <summary>
-    /// Lógica de interacción para Messages.xaml
-    /// </summary>
     public partial class Guide : Page
     {
         public Guide()
