@@ -1,30 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using WPFUIKitProfessional.Themes;
 using WPFUIKitProfessional.Pages;
 using Haley.Utils;
+using WPFUIKitProfessional.Authorization;
+using WPFUIKitProfessional.Models;
 
 namespace WPFUIKitProfessional
 {
-    /// <summary>
-    /// Lógica de interacción para MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
+        public User CurrentUser { get; set; }
         public MainWindow()
         {
+            Account account = new Account();
+            account.Show();
+            account.authorizationFrameContent.Navigate(new Login());
+
+            Visibility = Visibility.Hidden;
             InitializeComponent();
 
             // Culture
@@ -90,7 +83,20 @@ namespace WPFUIKitProfessional
 
         private void rdUsers_Click(object sender, RoutedEventArgs e)
         {
-            frameContent.Navigate(new Users());
+            Users usersPage = new Users();
+            User user = (App.Current.MainWindow as MainWindow).CurrentUser;
+            if (user != null)
+            {
+                usersPage.id.Text = user.Id.ToString();
+                usersPage.login.Text = user.Login;
+                usersPage.password.Text = user.Password;
+            }
+            else
+            {
+                usersPage.id.Text = usersPage.login.Text = usersPage.password.Text = string.Empty;
+            }
+            
+            frameContent.Navigate(usersPage);
         }
     }
 }
