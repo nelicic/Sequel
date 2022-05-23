@@ -2,6 +2,8 @@
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
+using WPFUIKitProfessional.Models;
+using WPFUIKitProfessional.Pages;
 
 namespace WPFUIKitProfessional.Authorization
 {
@@ -20,7 +22,37 @@ namespace WPFUIKitProfessional.Authorization
         {
             var account = Window.GetWindow(this);
             (account as Account).Registration();
-            account.Title = "Registration";
+        }
+
+        private void LoginButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (login.Text == string.Empty || pb.Password == string.Empty)
+            {
+                alert.Foreground = Brushes.Red;
+                alert.Text = "Fill all fields";
+                return;
+            }
+            alert.Text = string.Empty;
+
+            var account = (Account)Window.GetWindow(this);
+            if (account.IsAuthorized(login.Text).Result)
+            {
+                if (account.IsAuthorized(login.Text, pb.Password).Result)
+                {
+                    (App.Current.MainWindow as MainWindow).CurrentUser = account.GetUser(login.Text, pb.Password).Result;
+                    account.Close();
+                }
+                else
+                {
+                    alert.Foreground = Brushes.Red;
+                    alert.Text = "Incorrect login or password";
+                }
+            }
+            else
+            {
+                alert.Foreground = Brushes.Red;
+                alert.Text = "Invalid login or password";
+            }
         }
     }
 }

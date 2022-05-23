@@ -20,7 +20,6 @@ namespace WPFUIKitProfessional.Authorization
         {
             var account = Window.GetWindow(this);
             (account as Account).Login();
-            account.Title = "Login";
         }
 
         private void Registration_Click(object sender, RoutedEventArgs e)
@@ -39,20 +38,16 @@ namespace WPFUIKitProfessional.Authorization
             }
             alert.Text = string.Empty;
 
-
             var account = (Account)Window.GetWindow(this);
             if (!(account.IsAuthorized(login.Text).Result))
             {
                 account.AddUser(new User(login.Text, pb.Password));
-                alert.Foreground = Brushes.Green;
-                alert.Text = "Successful registration";
             }
             else
             {
                 alert.Foreground = Brushes.Red;
                 alert.Text = "Login is already used";
-            }
-                
+            }    
         }
     }
 }

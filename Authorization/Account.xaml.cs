@@ -21,19 +21,30 @@ namespace WPFUIKitProfessional.Authorization
         {
             db.Users.Add(user);
             db.SaveChanges();
+            Login();
         }
         public async Task<bool> IsAuthorized(string login)
         {
-            var containsLogin = await db.Users.AnyAsync(x => x.Login == login);
-            return containsLogin;
+            return await db.Users.AnyAsync(x => x.Login == login);
         }
+        public async Task<bool> IsAuthorized(string login, string password)
+        {
+            return await db.Users.AnyAsync(x => x.Login == login && x.Password == password);
+        }
+        public async Task<User> GetUser(string login, string password)
+        {
+            return await db.Users.FirstOrDefaultAsync(x => x.Login == login && x.Password == password);
+        }
+
         public void Registration()
         {
             authorizationFrameContent.Navigate(new Registration());
+            Title = "Registration";
         }
         public void Login()
         {
             authorizationFrameContent.Navigate(new Login());
+            Title = "Login";
         }
     }
 }

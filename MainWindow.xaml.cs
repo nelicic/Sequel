@@ -4,12 +4,13 @@ using WPFUIKitProfessional.Themes;
 using WPFUIKitProfessional.Pages;
 using Haley.Utils;
 using WPFUIKitProfessional.Authorization;
-using System.Threading;
+using WPFUIKitProfessional.Models;
 
 namespace WPFUIKitProfessional
 {
     public partial class MainWindow : Window
     {
+        public User CurrentUser { get; set; }
         public MainWindow()
         {
             Account account = new Account();
@@ -81,7 +82,12 @@ namespace WPFUIKitProfessional
 
         private void rdUsers_Click(object sender, RoutedEventArgs e)
         {
-            frameContent.Navigate(new Users());
+            Users usersPage = new Users();
+            User user = (App.Current.MainWindow as MainWindow).CurrentUser;
+            usersPage.id.Text = user.Id.ToString();
+            usersPage.login.Text = user.Login;
+            usersPage.password.Text = user.Password;
+            frameContent.Navigate(usersPage);
         }
     }
 }
