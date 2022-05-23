@@ -17,6 +17,7 @@ namespace WPFUIKitProfessional
             account.Show();
             account.authorizationFrameContent.Navigate(new Login());
 
+            Visibility = Visibility.Hidden;
             InitializeComponent();
 
             // Culture
@@ -84,9 +85,17 @@ namespace WPFUIKitProfessional
         {
             Users usersPage = new Users();
             User user = (App.Current.MainWindow as MainWindow).CurrentUser;
-            usersPage.id.Text = user.Id.ToString();
-            usersPage.login.Text = user.Login;
-            usersPage.password.Text = user.Password;
+            if (user != null)
+            {
+                usersPage.id.Text = user.Id.ToString();
+                usersPage.login.Text = user.Login;
+                usersPage.password.Text = user.Password;
+            }
+            else
+            {
+                usersPage.id.Text = usersPage.login.Text = usersPage.password.Text = string.Empty;
+            }
+            
             frameContent.Navigate(usersPage);
         }
     }

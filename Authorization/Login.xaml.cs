@@ -40,19 +40,12 @@ namespace WPFUIKitProfessional.Authorization
                 if (account.IsAuthorized(login.Text, pb.Password).Result)
                 {
                     (App.Current.MainWindow as MainWindow).CurrentUser = account.GetUser(login.Text, pb.Password).Result;
+                    (App.Current.MainWindow as MainWindow).Visibility = Visibility.Visible;
                     account.Close();
                 }
-                else
-                {
-                    alert.Foreground = Brushes.Red;
-                    alert.Text = "Incorrect login or password";
-                }
             }
-            else
-            {
-                alert.Foreground = Brushes.Red;
-                alert.Text = "Invalid login or password";
-            }
+            alert.Foreground = Brushes.Red;
+            alert.Text = "Invalid login or password";
         }
     }
 }
