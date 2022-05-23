@@ -1,17 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Haley.Utils;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using WPFUIKitProfessional.Authorization;
 
 namespace WPFUIKitProfessional.Pages
@@ -21,6 +11,13 @@ namespace WPFUIKitProfessional.Pages
         public Users()
         {
             InitializeComponent();
+
+            // Culture
+            LangUtils.Register();
+            ChangeCulture("en");
+            Languages.Items.Add("English");
+            Languages.Items.Add("Ukrainian");
+            // ----------------------
         }
 
         private void Button_MouseEnter(object sender, MouseEventArgs e)
@@ -41,6 +38,19 @@ namespace WPFUIKitProfessional.Pages
             Account account = new Account();
             account.Show();
             account.authorizationFrameContent.Navigate(new Login());
+        }
+
+        public static void ChangeCulture(string code)
+        {
+            LangUtils.ChangeCulture(code);
+        }
+
+        private void Languages_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (Languages.SelectedValue.ToString().Equals("English"))
+                ChangeCulture("en");
+            else
+                ChangeCulture("uk");
         }
     }
 }

@@ -73,6 +73,15 @@
                     Margin="140 10 10 10"
                     Content="Logout"/>
 
+                <ComboBox  IsReadOnly="True"
+                           Text="English"
+                           Height="30" 
+                           Name="Languages" 
+                           Width="300"
+                           Margin="140 10 10 10"
+                           SelectionChanged="Languages_SelectionChanged">
+                </ComboBox>
+
             </StackPanel>
 
             <StackPanel>
