@@ -10,19 +10,16 @@
 
     <Border CornerRadius="8" Background="{DynamicResource SecundaryBackgroundColor}">
         <StackPanel Orientation="Horizontal">
-            <Border CornerRadius="8" Background="Orange" Margin="10 10 20 10">
+            <Border CornerRadius="8" Background="{DynamicResource PrimaryBackgroundColor}" Margin="10 10 20 10">
                 <Frame x:Name="levelFrameContent" 
                        NavigationUIVisibility="Hidden" 
                        Width="915"/>
             </Border>
-            
-            <Border CornerRadius="8" 
-                    Width="300"
-                    Margin="10"
-                    Background="{DynamicResource PrimaryBackgroundColor}">
-                <WrapPanel>
-                    <Button Style="{DynamicResource Authorization}" Height="51" Width="51" Content="1" Margin="12"></Button>
-                </WrapPanel>
+
+            <Border CornerRadius="8" Width="300" Margin="10" Background="{DynamicResource PrimaryBackgroundColor}">
+                <ScrollViewer>
+                    <WrapPanel Name="sidebar"/>
+                </ScrollViewer>
             </Border>
         </StackPanel>
     </Border>

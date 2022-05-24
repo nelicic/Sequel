@@ -12,5 +12,6 @@ namespace WPFUIKitProfessional.Models
         public ApplicationContext() : base("DefaultConnection")
         { }
         public DbSet<User> Users { get; set; }
+        public DbSet<Level> Levels { get; set; }
     }
 }

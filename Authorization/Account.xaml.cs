@@ -7,7 +7,7 @@ namespace WPFUIKitProfessional.Authorization
 {
     public partial class Account : Window
     {
-        ApplicationContext db = new ApplicationContext();
+        ApplicationContext db;
         public Account()
         {
             InitializeComponent();
