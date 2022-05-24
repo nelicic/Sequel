@@ -8,19 +8,19 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Users" FontFamily="Poppins">
 
-    <Grid Background="{DynamicResource PrimaryBackgroundColor}">
+    <Border CornerRadius="8" Background="{DynamicResource SecundaryBackgroundColor}">
         <StackPanel Orientation="Horizontal">
-            <StackPanel Margin="50 100 0 0">
-                <Image Source="/Authorization/LoginIcon.png" Width="180" Margin="150 20 20 20" />
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="ID:" 
+                <StackPanel Margin="50 100 0 0">
+                    <Image Source="/Authorization/LoginIcon.png" Width="180" Margin="150 20 20 20" />
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="ID:" 
                                FontSize="25" 
                                Foreground="{DynamicResource PrimaryTextColor}" 
                                Height="30"
                                Margin="10"
                                Width="110"/>
-                    
-                    <TextBlock Name="id"
+
+                        <TextBlock Name="id"
                                FontSize="25"
                                Foreground="{DynamicResource PrimaryTextColor}" 
                                Height="30"
@@ -28,17 +28,17 @@
                                Width="300"
                                Padding="2"
                                Background="{DynamicResource SecundaryBackgroundColor}"/>
-                </StackPanel>
+                    </StackPanel>
 
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Login:"
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Login:"
                                FontSize="25"
                                Foreground="{DynamicResource PrimaryTextColor}" 
                                Height="30" 
                                Margin="10" 
                                Width="110"/>
 
-                    <TextBlock Name="login" 
+                        <TextBlock Name="login" 
                                FontSize="25" 
                                Foreground="{DynamicResource PrimaryTextColor}" 
                                Height="30" 
@@ -46,17 +46,17 @@
                                Width="300" 
                                Padding="2"
                                Background="{DynamicResource SecundaryBackgroundColor}"/>
-                </StackPanel>
+                    </StackPanel>
 
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Date:"
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Date:"
                                FontSize="25"
                                Foreground="{DynamicResource PrimaryTextColor}" 
                                Height="30" 
                                Margin="10" 
                                Width="110"/>
 
-                    <TextBlock Name="date" 
+                        <TextBlock Name="date" 
                                FontSize="25" 
                                Foreground="{DynamicResource PrimaryTextColor}" 
                                Height="30" 
@@ -64,31 +64,31 @@
                                Width="300" 
                                Padding="2"
                                Background="{DynamicResource SecundaryBackgroundColor}"/>
-                </StackPanel>
+                    </StackPanel>
 
-                <Button Style="{DynamicResource Authorization}" 
+                    <Button Style="{DynamicResource Authorization}" 
                     MouseEnter="Button_MouseEnter"
                     MouseLeave="Button_MouseLeave"
                     Click="Logout_Click"
                     Margin="140 10 10 10"
                     Content="Logout"/>
 
-                <ComboBox  IsReadOnly="True"
+                    <ComboBox IsReadOnly="True"
                            Text="English"
                            Height="30" 
                            Name="Languages" 
                            Width="300"
                            Margin="140 10 10 10"
                            SelectionChanged="Languages_SelectionChanged">
-                </ComboBox>
+                    </ComboBox>
 
-            </StackPanel>
+                </StackPanel>
 
-            <StackPanel>
-                
-                <!-- STATISTICS -->
-                
+                <StackPanel>
+
+                    <!-- STATISTICS -->
+
+                </StackPanel>
             </StackPanel>
-        </StackPanel>
-    </Grid>
+    </Border>
 </Page>
