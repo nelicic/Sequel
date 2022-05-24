@@ -1,8 +1,6 @@
 ﻿using System.Windows;
-using System.Windows.Controls;
 using WPFUIKitProfessional.Themes;
 using WPFUIKitProfessional.Pages;
-using Haley.Utils;
 using WPFUIKitProfessional.Authorization;
 using WPFUIKitProfessional.Models;
 
@@ -15,6 +13,7 @@ namespace WPFUIKitProfessional
         public Guide Guide { get; set; }
         public Levels Levels { get; set; }
         public Users Users { get; set; }
+        public Pages.Level Level { get; set; }
 
         public MainWindow()
         {
@@ -22,6 +21,7 @@ namespace WPFUIKitProfessional
             Guide = new Guide();
             Levels = new Levels();
             Users = new Users();
+            Level = new Pages.Level();
 
             Account account = new Account();
             account.Show();
@@ -33,7 +33,7 @@ namespace WPFUIKitProfessional
         }
 
         #region Culture
-        
+
         #endregion
 
         private void Themes_Click(object sender, RoutedEventArgs e)
