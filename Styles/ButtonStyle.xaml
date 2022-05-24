@@ -99,7 +99,6 @@
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="Background" Value="{DynamicResource PrimaryGreenColor}"/>
         <Setter Property="FontSize" Value="17"/>
-        <Setter Property="Content" Value="Login"/>
         <Setter Property="Width" Value="300"/>
         <Setter Property="Height" Value="35"/>
         <Setter Property="Margin" Value="35 25 35 35"/>
