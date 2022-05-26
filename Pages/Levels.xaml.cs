@@ -68,6 +68,27 @@ namespace WPFUIKitProfessional.Pages
                 levelpage.answerInput.Visibility = Visibility.Visible;
             }
 
+            if ((sender as Button).Background.ToString() == "#FF7CFC00")
+            {
+                levelpage.checkBtn.Background = Brushes.LawnGreen;
+                levelpage.checkBtn.Content = "Completed!";
+                levelpage.checkBtn.IsEnabled = false;
+                levelpage.answerLabel.Visibility = Visibility.Hidden;
+                levelpage.answerInput.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                levelpage.checkBtn.Background = (Brush)FindResource("PrimaryBackgroundColor");
+                levelpage.checkBtn.Content = "Check";
+                levelpage.checkBtn.IsEnabled = true;
+                if (levelpage.CurrentLevel.Visible == 1)
+                {
+                    levelpage.answerLabel.Visibility = Visibility.Visible;
+                    levelpage.answerInput.Visibility = Visibility.Visible;
+                }
+            }
+
+
             levelFrameContent.Navigate((App.Current.MainWindow as MainWindow).Level);
         }
 

@@ -32,7 +32,6 @@ namespace WPFUIKitProfessional.Pages
             if (CurrentLevel.Visible == 1)
                 if (CurrentLevel.Answer == answerInput.Text)
                 {
-                    MessageBox.Show(CurrentLevel.Id + " PASSED");
                     var db = new ApplicationContext();
                     db.CompletedLevels.Load();
                     DataContext = db.CompletedLevels.Local.ToBindingList();
@@ -41,7 +40,17 @@ namespace WPFUIKitProfessional.Pages
                     {
                         db.CompletedLevels.Add(new CompletedLevel((App.Current.MainWindow as MainWindow).CurrentUser.Id, CurrentLevel.Id, 1));
                         db.SaveChanges();
+                        checkBtn.Background = Brushes.LawnGreen;
+                        checkBtn.Content = "Completed!";
+                        checkBtn.IsEnabled = false;
+                        answerLabel.Visibility = Visibility.Hidden;
+                        answerInput.Visibility = Visibility.Hidden;
+                        (App.Current.MainWindow as MainWindow).rdLevels_Click(null,null);
                     }
+                }
+                else
+                {
+                    checkBtn.Background = Brushes.Red;
                 }
         }
     }

@@ -68,7 +68,7 @@ namespace WPFUIKitProfessional
             WindowState = WindowState.Minimized;
         }
 
-        private async void rdLevels_Click(object sender, RoutedEventArgs e)
+        public async void rdLevels_Click(object sender, RoutedEventArgs e)
         {
             var db = new ApplicationContext();
             db.Levels.Load();
@@ -94,8 +94,7 @@ namespace WPFUIKitProfessional
                         level.Foreground = Brushes.White;
                     }
             }
-
-            
+            Levels.levelFrameContent.Navigate(null);
             frameContent.Navigate(Levels);
         }
 

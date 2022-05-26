@@ -70,9 +70,11 @@
                         MouseEnter="Button_MouseEnter"
                         Padding="5"
                         Height="40"
-                        MouseLeave="Button_MouseLeave"/>
+                        MouseLeave="Button_MouseLeave"
+                        Background="{DynamicResource PrimaryBackgroundColor}"/>
 
                     <Button Name="checkBtn" 
+                        Background="{DynamicResource PrimaryBackgroundColor}"
                         Style="{DynamicResource Authorization}" 
                         Content="Check" 
                         FontSize="25"
