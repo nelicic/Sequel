@@ -72,12 +72,14 @@
                         Height="40"
                         MouseLeave="Button_MouseLeave"/>
 
-                    <Button Style="{DynamicResource Authorization}" 
+                    <Button Name="checkBtn" 
+                        Style="{DynamicResource Authorization}" 
                         Content="Check" 
                         FontSize="25"
                         Width="200"
                         Margin="35 30 0 20"
                         MouseEnter="Button_MouseEnter"
+                        Click="CheckButton_Click"
                         Padding="5"
                         Height="40"
                         MouseLeave="Button_MouseLeave"/>
@@ -90,7 +92,7 @@
                     <TextBox x:Name="answerInput"
                              Margin="35 10 0 20"
                              Width="200"
-                             Height="33"
+                             Height="37"
                              FontSize="20"
                              Padding="3"
                              Foreground="{DynamicResource PrimaryTextColor}"

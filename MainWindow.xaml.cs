@@ -3,6 +3,12 @@ using WPFUIKitProfessional.Themes;
 using WPFUIKitProfessional.Pages;
 using WPFUIKitProfessional.Authorization;
 using WPFUIKitProfessional.Models;
+using System.Data.Entity;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using System.Linq;
+using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace WPFUIKitProfessional
 {
@@ -62,8 +68,34 @@ namespace WPFUIKitProfessional
             WindowState = WindowState.Minimized;
         }
 
-        private void rdLevels_Click(object sender, RoutedEventArgs e)
+        private async void rdLevels_Click(object sender, RoutedEventArgs e)
         {
+            var db = new ApplicationContext();
+            db.Levels.Load();
+            db.CompletedLevels.Load();
+            DataContext = db.Levels.Local.ToBindingList();
+            DataContext = db.CompletedLevels.Local.ToBindingList();
+            List<int> levelId = await db.Levels.Select(x => x.Id).ToListAsync();
+            List<CompletedLevel> completedLevel = await db.CompletedLevels.Select(x => x).ToListAsync();
+
+            var a = Levels.sidebar.Children;
+            System.Collections.IList list = a;
+            for (int i = 0; i < list.Count; i++)
+            {
+                Button level = (Button)list[i];
+                var id = int.Parse(level.Content.ToString());
+                level.Background = (Brush)FindResource("SecundaryBackgroundColor");
+                level.Foreground = new SolidColorBrush(Colors.Black);
+
+                foreach (var item in completedLevel)
+                    if (item.UserId == CurrentUser.Id && item.LevelId == id && item.Passed == 1)
+                    {
+                        level.Background = Brushes.Green;
+                        level.Foreground = Brushes.White;
+                    }
+            }
+
+            
             frameContent.Navigate(Levels);
         }
 

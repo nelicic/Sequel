@@ -13,6 +13,9 @@ namespace WPFUIKitProfessional.Models
         public int Id { get; set; }
         public string Question { get; set; }
         public string Answer { get; set; }
+        public string Path { get; set; }
+        public int Visible { get; set; }
+        public string SQLanswer { get; set; }
         public Level() { }
     }
 }

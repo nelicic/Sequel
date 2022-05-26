@@ -9,9 +9,10 @@ namespace WPFUIKitProfessional.Models
 {
     public class ApplicationContext : DbContext
     {
-        public ApplicationContext() : base("DefaultConnection")
+        public ApplicationContext() : base("Users")
         { }
         public DbSet<User> Users { get; set; }
         public DbSet<Level> Levels { get; set; }
+        public DbSet<CompletedLevel> CompletedLevels { get; set; }
     }
 }
