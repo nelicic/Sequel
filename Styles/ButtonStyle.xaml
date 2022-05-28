@@ -4,7 +4,7 @@
     <Style TargetType="{x:Type ComboBox}">
         <Setter Property="Foreground" Value="{DynamicResource PrimaryTextColor}" />
         <Setter Property="BorderBrush" Value="Transparent" />
-        <Setter Property="Background" Value="{DynamicResource SecundaryBackgroundColor}" />
+        <Setter Property="Background" Value="{DynamicResource PrimaryBackgroundColor}" />
         <Setter Property="SnapsToDevicePixels" Value="true"/>
         <Setter Property="OverridesDefaultStyle" Value="true"/>
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto"/>
@@ -99,7 +99,6 @@
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="Background" Value="{DynamicResource PrimaryGreenColor}"/>
         <Setter Property="FontSize" Value="17"/>
-        <Setter Property="Content" Value="Login"/>
         <Setter Property="Width" Value="300"/>
         <Setter Property="Height" Value="35"/>
         <Setter Property="Margin" Value="35 25 35 35"/>
@@ -108,7 +107,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
-                    <Border Background="{TemplateBinding Background}" >
+                    <Border Background="{TemplateBinding Background}" CornerRadius="8" >
                         <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Border>
                 </ControlTemplate>

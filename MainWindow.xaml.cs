@@ -1,10 +1,13 @@
 ﻿using System.Windows;
-using System.Windows.Controls;
-using WPFUIKitProfessional.Themes;
 using WPFUIKitProfessional.Pages;
-using Haley.Utils;
 using WPFUIKitProfessional.Authorization;
 using WPFUIKitProfessional.Models;
+using System.Data.Entity;
+using System.Collections.Generic;
+using System.Linq;
+using System.Windows.Controls;
+using System.Windows.Media;
+using System.Collections;
 
 namespace WPFUIKitProfessional
 {
@@ -15,6 +18,7 @@ namespace WPFUIKitProfessional
         public Guide Guide { get; set; }
         public Levels Levels { get; set; }
         public Users Users { get; set; }
+        public Pages.Level Level { get; set; }
 
         public MainWindow()
         {
@@ -22,27 +26,19 @@ namespace WPFUIKitProfessional
             Guide = new Guide();
             Levels = new Levels();
             Users = new Users();
+            Level = new Pages.Level();
 
             Account account = new Account();
             account.Show();
             account.authorizationFrameContent.Navigate(new Login());
-
             Visibility = Visibility.Hidden;
-            //Visibility = Visibility.Visible;
+            
             InitializeComponent();
         }
 
         #region Culture
-        
-        #endregion
 
-        private void Themes_Click(object sender, RoutedEventArgs e)
-        {
-            if (Themes.IsChecked == true)
-                ThemesController.SetTheme(ThemesController.ThemeTypes.Dark);
-            else
-                ThemesController.SetTheme(ThemesController.ThemeTypes.Light);
-        }
+        #endregion
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
@@ -62,8 +58,33 @@ namespace WPFUIKitProfessional
             WindowState = WindowState.Minimized;
         }
 
-        private void rdLevels_Click(object sender, RoutedEventArgs e)
+        public async void rdLevels_Click(object sender, RoutedEventArgs e)
         {
+            var db = new ApplicationContext();
+            db.Levels.Load();
+            db.CompletedLevels.Load();
+            DataContext = db.Levels.Local.ToBindingList();
+            DataContext = db.CompletedLevels.Local.ToBindingList();
+            List<int> levelId = await db.Levels.Select(x => x.Id).ToListAsync();
+            List<CompletedLevel> completedLevel = await db.CompletedLevels.Select(x => x).ToListAsync();
+
+            var a = Levels.sidebar.Children;
+            IList list = a;
+            for (int i = 0; i < list.Count; i++)
+            {
+                Button level = (Button)list[i];
+                var id = int.Parse(level.Content.ToString());
+                level.Background = (Brush)FindResource("SecundaryBackgroundColor");
+                level.Foreground = (Brush)FindResource("PrimaryTextColor");
+
+                foreach (var item in completedLevel)
+                    if (item.UserId == CurrentUser.Id && item.LevelId == id && item.Passed == 1)
+                    {
+                        level.Background = Brushes.Green;
+                        level.Foreground = Brushes.White;
+                    }
+            }
+            Levels.levelFrameContent.Navigate(null);
             frameContent.Navigate(Levels);
         }
 

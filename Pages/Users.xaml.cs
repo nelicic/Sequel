@@ -3,6 +3,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using WPFUIKitProfessional.Authorization;
+using WPFUIKitProfessional.Themes;
 
 namespace WPFUIKitProfessional.Pages
 {
@@ -18,6 +19,14 @@ namespace WPFUIKitProfessional.Pages
             Languages.Items.Add("English");
             Languages.Items.Add("Ukrainian");
             // ----------------------
+        }
+
+        private void Themes_Click(object sender, RoutedEventArgs e)
+        {
+            if (Themes.IsChecked == true)
+                ThemesController.SetTheme(ThemesController.ThemeTypes.Dark);
+            else
+                ThemesController.SetTheme(ThemesController.ThemeTypes.Light);
         }
 
         private void Button_MouseEnter(object sender, MouseEventArgs e)

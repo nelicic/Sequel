@@ -1,9 +1,10 @@
-﻿using System.Threading;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using WPFUIKitProfessional.Models;
+using WPFUIKitProfessional.Service;
+using System.Text.RegularExpressions;
 
 namespace WPFUIKitProfessional.Authorization
 {
@@ -36,18 +37,30 @@ namespace WPFUIKitProfessional.Authorization
                 alert.Text = "Passwords are different";
                 return;
             }
+
+            alert.TextWrapping = TextWrapping.Wrap;
+            var password = pb.Password;
+            var hasNumber = new Regex(@"[0-9]+");
+            var hasUpperChar = new Regex(@"[A-Z]+");
+            var hasMinimum8Chars = new Regex(@".{8,}");
+            if (!(hasNumber.IsMatch(password) && hasUpperChar.IsMatch(password) && hasMinimum8Chars.IsMatch(password)))
+            {
+                alert.Foreground = Brushes.Red;
+                alert.Text = "Password must include at least one capital letter and one number";
+                return;
+            }
             alert.Text = string.Empty;
 
             var account = (Account)Window.GetWindow(this);
             if (!(account.IsAuthorized(login.Text).Result))
             {
-                account.AddUser(new User(login.Text, pb.Password));
+                account.AddUser(new User(login.Text, Encryption.GetHashString(pb.Password)));
             }
             else
             {
                 alert.Foreground = Brushes.Red;
                 alert.Text = "Login is already used";
-            }    
+            }
         }
     }
 }

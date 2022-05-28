@@ -5,10 +5,100 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:WPFUIKitProfessional.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="Levels" FontFamily="Poppins">
+      d:DesignHeight="750" d:DesignWidth="1270"
+      Title="Levels" FontFamily="Poppins"
+      xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls">
 
     <Border CornerRadius="8" Background="{DynamicResource SecundaryBackgroundColor}">
-        <Label Content="Levels" FontSize="50" FontWeight="Bold" Foreground="{DynamicResource PrimaryTextColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Canvas>
+            <StackPanel Orientation="Horizontal" Name="stlevel" Height="785">
+                <Border CornerRadius="8" Background="{DynamicResource PrimaryBackgroundColor}" Margin="10 10 20 10">
+                    <Frame x:Name="levelFrameContent" 
+                           NavigationUIVisibility="Hidden" 
+                           Width="915"/>
+                </Border>
+
+                <Expander Header="123456" Margin="0,0,30,0" Width="300" Name="AnimatedExpander" Grid.Row="1" ExpandDirection="Left" Visibility="Visible" IsExpanded="True">
+                    <Expander.Triggers>
+                        <EventTrigger RoutedEvent="Expander.Expanded">
+                            <EventTrigger.Actions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation  From="50"   
+                                                          To="300"   
+                                                          Storyboard.TargetName="AnimatedExpander"   
+                                                          Storyboard.TargetProperty="Width"   
+                                                          Duration="0:00:00.4"/>
+                                        <DoubleAnimation  From="1165"
+                                                          To="915"
+                                                          Storyboard.TargetName="levelFrameContent"
+                                                          Storyboard.TargetProperty="Width"
+                                                          Duration="0:00:00.4"/>
+                                        <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="Margin" BeginTime="00:00:00">
+                                            <SplineThicknessKeyFrame KeyTime="00:00:00" Value="270,0,0,0" />
+                                            <SplineThicknessKeyFrame KeyTime="00:00:0.4" Value="0,0,0,0" />
+                                        </ThicknessAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger.Actions>
+                        </EventTrigger>
+                        <EventTrigger RoutedEvent="Expander.Collapsed">
+                            <EventTrigger.Actions>
+                                <BeginStoryboard>
+                                    <Storyboard >
+                                        <DoubleAnimation  From="300"   
+                                                          To="50"   
+                                                          Storyboard.TargetName="AnimatedExpander"   
+                                                          Storyboard.TargetProperty="Width"   
+                                                          Duration="0:00:00.25"/>
+                                        <DoubleAnimation  From="915"
+                                                          To="1165"
+                                                          Storyboard.TargetName="levelFrameContent"
+                                                          Storyboard.TargetProperty="Width"
+                                                          Duration="0:00:00.25"/>
+                                        <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="Margin" BeginTime="00:00:00">
+                                            <SplineThicknessKeyFrame KeyTime="00:00:00" Value="270,0,0,0" />
+                                            <SplineThicknessKeyFrame KeyTime="00:00:0.25" Value="0,0,0,0" />
+                                        </ThicknessAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger.Actions>
+                        </EventTrigger>
+                    </Expander.Triggers>
+                    <Border CornerRadius="8" Width="276" Margin="10" Background="{DynamicResource PrimaryBackgroundColor}">
+                        <ScrollViewer>
+                            <WrapPanel Name="sidebar"/>
+                        </ScrollViewer>
+                    </Border>
+                </Expander>
+            </StackPanel>
+            <StackPanel Canvas.Left="1205" Canvas.Top="11" Orientation="Horizontal">
+                <StackPanel>
+                    <Border VerticalAlignment="Bottom" Width="40" Height="10" Margin="0 -20 0 0" Background="{DynamicResource SecundaryBackgroundColor}"/>
+                    <Border Width="40" Height="763" Background="{DynamicResource PrimaryGreenColor}" IsHitTestVisible="False">
+                        <TextBlock VerticalAlignment="Center" 
+                                   HorizontalAlignment="Center" 
+                                   Foreground="White" RenderTransformOrigin="0.5,0.5"
+                                   FontSize="15">
+                            <TextBlock.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform Angle="90"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </TextBlock.RenderTransform>Levels</TextBlock>
+                    </Border>
+                </StackPanel>
+                <StackPanel>
+                    <Border HorizontalAlignment="Left"  VerticalAlignment="Bottom" Width="17" Height="17" Margin="0 -9 0 0" Background="{DynamicResource SecundaryBackgroundColor}"/>
+                    <Border HorizontalAlignment="Left" Width="17" Height="763" Background="{DynamicResource SecundaryBackgroundColor}" IsHitTestVisible="False"/>
+                </StackPanel>
+                <StackPanel>
+                    <Border HorizontalAlignment="Left"  VerticalAlignment="Bottom" Width="17" Height="17" Margin="0 -9 0 0" Background="{DynamicResource PrimaryBackgroundColor}"/>
+                    <Border HorizontalAlignment="Left" Width="17" Height="763" Background="{DynamicResource PrimaryBackgroundColor}" IsHitTestVisible="False"/>
+                </StackPanel>
+            </StackPanel>
+        </Canvas>
     </Border>
 </Page>

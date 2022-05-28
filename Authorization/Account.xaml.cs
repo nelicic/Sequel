@@ -1,4 +1,5 @@
 ﻿using System.Data.Entity;
+using System.Security.Cryptography;
 using System.Threading.Tasks;
 using System.Windows;
 using WPFUIKitProfessional.Models;
@@ -7,7 +8,7 @@ namespace WPFUIKitProfessional.Authorization
 {
     public partial class Account : Window
     {
-        ApplicationContext db = new ApplicationContext();
+        ApplicationContext db;
         public Account()
         {
             InitializeComponent();

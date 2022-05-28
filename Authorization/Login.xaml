@@ -62,7 +62,8 @@
             <Button Style="{DynamicResource Authorization}" 
                     MouseEnter="LoginBtn_MouseEnter"
                     MouseLeave="LoginBtn_MouseLeave"
-                    Click="LoginButton_Click"/>
+                    Click="LoginButton_Click"
+                    Content="Login"/>
 
             <Button Style="{DynamicResource Authorization}" 
                     MouseEnter="LoginBtn_MouseEnter"
