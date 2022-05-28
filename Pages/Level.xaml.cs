@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Data;
 using System.Data.Entity;
 using System.Data.SQLite;
@@ -10,18 +9,13 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using WPFUIKitProfessional.Models;
+using WPFUIKitProfessional.Service;
 
 namespace WPFUIKitProfessional.Pages
 {
     public partial class Level : Page
     {
         public Models.Level CurrentLevel { get; set; }
-
-        private SQLiteConnection sqlconn;
-        private SQLiteCommand sqlCmd;
-        private DataTable dataTable = new DataTable();
-        private readonly DataSet ds = new DataSet();
-        private SQLiteDataAdapter dbSqlite = new SQLiteDataAdapter();
 
         public Level()
         {
@@ -41,38 +35,16 @@ namespace WPFUIKitProfessional.Pages
             (sender as TextBlock).Foreground = Brushes.White;
             popupImg.IsOpen = false;
         }
-        private void SetConnection(string path)
-        {
-            ConnectionStringSettings c = ConfigurationManager.ConnectionStrings[path];
-            string fixedConnectionString = c.ConnectionString.Replace("{AppDir}", AppDomain.CurrentDomain.BaseDirectory.Replace("\\bin\\Debug", ""));
-            sqlconn = new SQLiteConnection(fixedConnectionString);
-        }
 
         private async void ExecuteButton_Click(object sender, RoutedEventArgs e)
         {
             answerLabel.Foreground = Brushes.Black;
             answerLabel.Text = "Input answer:";
 
-            SetConnection(CurrentLevel.Path);
-            sqlconn.Open();
-
-            sqlCmd = sqlconn.CreateCommand();
-            string CommandText = Simplify(query.Text);
-
-            dbSqlite = new SQLiteDataAdapter(CommandText, sqlconn);
-            ds.Reset();
-            try
-            {
-                dbSqlite.Fill(ds);
-                dataTable = ds.Tables[0];
-                dataGrid.ItemsSource = dataTable.AsDataView();
-            }
-            catch (Exception)
-            {
-                answerLabel.Visibility = Visibility.Visible;
-                answerLabel.Foreground = Brushes.Red;
-                answerLabel.Text = "Query Error";
-            }
+            SQLite sQLite = new SQLite(CurrentLevel.Path);
+            sQLite.Query(query.Text);
+            sQLite.Execute(dataGrid,answerLabel);
+            string CommandText = sQLite.Simplify(query.Text);
 
             if (CurrentLevel.Visible == 0)
             {
@@ -84,7 +56,7 @@ namespace WPFUIKitProfessional.Pages
                     List<CompletedLevel> listOfLevels = await db.CompletedLevels.ToListAsync();
                     if (listOfLevels.Where(x => x.UserId == (App.Current.MainWindow as MainWindow).CurrentUser.Id && x.LevelId == CurrentLevel.Id && x.Passed == 1).ToList().Count == 0)
                     {
-                        db.CompletedLevels.Add(new CompletedLevel((App.Current.MainWindow as MainWindow).CurrentUser.Id, CurrentLevel.Id, 1));
+                        db.CompletedLevels.Add(new CompletedLevel((App.Current.MainWindow as MainWindow).CurrentUser.Id, CurrentLevel.Id, 1, query.Text));
                         db.SaveChanges();
                     }
 
@@ -98,9 +70,7 @@ namespace WPFUIKitProfessional.Pages
                 {
                     execute.Background = Brushes.Red;
                 }
-            }  
-
-            sqlconn.Close();
+            }
         }
 
         private async void CheckButton_Click(object sender, RoutedEventArgs e)
@@ -114,7 +84,7 @@ namespace WPFUIKitProfessional.Pages
                     List<CompletedLevel> listOfLevels = await db.CompletedLevels.ToListAsync();
                     if (listOfLevels.Where(x => x.UserId == (App.Current.MainWindow as MainWindow).CurrentUser.Id && x.LevelId == CurrentLevel.Id && x.Passed == 1).ToList().Count == 0)
                     {
-                        db.CompletedLevels.Add(new CompletedLevel((App.Current.MainWindow as MainWindow).CurrentUser.Id, CurrentLevel.Id, 1));
+                        db.CompletedLevels.Add(new CompletedLevel((App.Current.MainWindow as MainWindow).CurrentUser.Id, CurrentLevel.Id, 1, query.Text));
                         db.SaveChanges();
                         checkBtn.Background = Brushes.LawnGreen;
                         checkBtn.Content = "Completed";
@@ -127,17 +97,6 @@ namespace WPFUIKitProfessional.Pages
                 {
                     checkBtn.Background = Brushes.Red;
                 }
-        }
-
-        private string Simplify(string text)
-        {
-            while (text.Contains("\t"))
-                text = text.Replace("\t", " ");
-            while (text.Contains("\n") || text.Contains("\r"))
-                text = text.Replace("\n", " ").Replace("\r", " ");
-            while (text.Contains("  "))
-                text = text.Replace("  ", " ");
-            return text;
         }
     }
 }

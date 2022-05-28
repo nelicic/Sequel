@@ -9,6 +9,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using WPFUIKitProfessional.Models;
+using WPFUIKitProfessional.Service;
 
 namespace WPFUIKitProfessional.Pages
 {
@@ -29,7 +30,7 @@ namespace WPFUIKitProfessional.Pages
                 Button levelBtn = new Button();
 
                 levelBtn.Background = (Brush)FindResource("SecundaryBackgroundColor");
-                levelBtn.Foreground = new SolidColorBrush(Colors.Black);
+                levelBtn.Foreground = (Brush)FindResource("PrimaryTextColor");
                 levelBtn.Content = id.ToString();
                 levelBtn.Name = "Button" + id.ToString();
                 levelBtn.Width = levelBtn.Height = 60;
@@ -48,6 +49,8 @@ namespace WPFUIKitProfessional.Pages
             => await db.Levels.Select(x => x.Id).ToListAsync();
         public async Task<Models.Level> GetLevelAsync(int id)
             => await db.Levels.FirstOrDefaultAsync(x => x.Id == id);
+        public async Task<CompletedLevel> GetCompletedLevelAsync(int levelId, int userId)
+            => await db.CompletedLevels.FirstOrDefaultAsync(x => x.LevelId == levelId && x.UserId == userId);
 
         private void LevelBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -59,7 +62,7 @@ namespace WPFUIKitProfessional.Pages
             levelPage.img.Source = new BitmapImage(imageUri);
             levelPage.levelnumber.Text = "Level " + levelPage.CurrentLevel.Id;
             levelPage.answerInput.Text = string.Empty;
-            levelPage.answerLabel.Foreground = Brushes.Black;
+            levelPage.answerLabel.Foreground = (Brush)FindResource("PrimaryTextColor");
             levelPage.answerLabel.Text = "Input answer:";
 
             if ((sender as Button).Background.ToString() == "#FF7CFC00")
@@ -68,6 +71,10 @@ namespace WPFUIKitProfessional.Pages
                     LevelVisible0Completed(levelPage);
                 else
                     LevelVisible1Completed(levelPage);
+
+                SQLite sQLite = new SQLite(levelPage.CurrentLevel.Path);
+                sQLite.Query(levelPage.query.Text);
+                sQLite.Execute(levelPage.dataGrid, levelPage.answerLabel);
             }
             else
             {
@@ -75,6 +82,8 @@ namespace WPFUIKitProfessional.Pages
                     LevelVisible0NotCompleted(levelPage);
                 else
                     LevelVisible1NotCompleted(levelPage);
+
+                levelPage.dataGrid.ItemsSource = null;
             }
 
             levelFrameContent.Navigate((App.Current.MainWindow as MainWindow).Level);
@@ -86,12 +95,16 @@ namespace WPFUIKitProfessional.Pages
             if ((sender as Button).Background == Brushes.Green)
                 (sender as Button).Background = Brushes.LawnGreen;
             else
+            {
                 (sender as Button).Background = Brushes.White;
+                (sender as Button).Foreground = Brushes.Black;
+            }    
             Cursor = Cursors.Hand;
         }
         private void Btn_MouseLeave(object sender, MouseEventArgs e)
         {
             (sender as Button).Background = Color;
+            (sender as Button).Foreground = (Brush)FindResource("PrimaryTextColor");
             Cursor = Cursors.Arrow;
         }
 
@@ -103,6 +116,7 @@ namespace WPFUIKitProfessional.Pages
             levelPage.execute.Content = "Execute";
             levelPage.checkBtn.Content = "Completed";
             levelPage.answerInput.Text = levelPage.CurrentLevel.Answer;
+            levelPage.query.Text = GetCompletedLevelAsync(levelPage.CurrentLevel.Id, (App.Current.MainWindow as MainWindow).CurrentUser.Id).Result.SQLquery;
 
             levelPage.execute.IsEnabled = true;
             levelPage.checkBtn.IsEnabled = false;
@@ -118,7 +132,7 @@ namespace WPFUIKitProfessional.Pages
             levelPage.execute.Background = Brushes.LawnGreen;
             levelPage.execute.Content = "Completed";
             levelPage.execute.IsEnabled = false;
-            levelPage.query.Text = levelPage.CurrentLevel.SQLanswer;
+            levelPage.query.Text = GetCompletedLevelAsync(levelPage.CurrentLevel.Id, (App.Current.MainWindow as MainWindow).CurrentUser.Id).Result.SQLquery;
 
             levelPage.checkBtn.Visibility = Visibility.Hidden;
             levelPage.answerInput.Visibility = Visibility.Hidden;

@@ -1,5 +1,4 @@
 ﻿using System.Windows;
-using WPFUIKitProfessional.Themes;
 using WPFUIKitProfessional.Pages;
 using WPFUIKitProfessional.Authorization;
 using WPFUIKitProfessional.Models;
@@ -33,21 +32,13 @@ namespace WPFUIKitProfessional
             account.Show();
             account.authorizationFrameContent.Navigate(new Login());
             Visibility = Visibility.Hidden;
-
+            
             InitializeComponent();
         }
 
         #region Culture
 
         #endregion
-
-        private void Themes_Click(object sender, RoutedEventArgs e)
-        {
-            if (Themes.IsChecked == true)
-                ThemesController.SetTheme(ThemesController.ThemeTypes.Dark);
-            else
-                ThemesController.SetTheme(ThemesController.ThemeTypes.Light);
-        }
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
@@ -84,7 +75,7 @@ namespace WPFUIKitProfessional
                 Button level = (Button)list[i];
                 var id = int.Parse(level.Content.ToString());
                 level.Background = (Brush)FindResource("SecundaryBackgroundColor");
-                level.Foreground = new SolidColorBrush(Colors.Black);
+                level.Foreground = (Brush)FindResource("PrimaryTextColor");
 
                 foreach (var item in completedLevel)
                     if (item.UserId == CurrentUser.Id && item.LevelId == id && item.Passed == 1)
