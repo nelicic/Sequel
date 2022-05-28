@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
@@ -6,6 +7,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Imaging;
 using WPFUIKitProfessional.Models;
 
 namespace WPFUIKitProfessional.Pages
@@ -49,45 +51,31 @@ namespace WPFUIKitProfessional.Pages
 
         private void LevelBtn_Click(object sender, RoutedEventArgs e)
         {
-            var levelpage = (Application.Current.MainWindow as MainWindow).Level;
-            levelpage.CurrentLevel = GetLevelAsync(int.Parse((sender as Button).Content.ToString())).Result;
-            levelpage.question.Text = levelpage.CurrentLevel.Question;
-            levelpage.query.Text = string.Empty;
-            levelpage.levelnumber.Text = "Level " + levelpage.CurrentLevel.Id;
-            levelpage.answerInput.Text = string.Empty;
-            if (levelpage.CurrentLevel.Visible == 0)
-            {
-                levelpage.checkBtn.Visibility = Visibility.Hidden;
-                levelpage.answerLabel.Visibility = Visibility.Hidden;
-                levelpage.answerInput.Visibility = Visibility.Hidden;
-            }
-            else
-            {
-                levelpage.checkBtn.Visibility = Visibility.Visible;
-                levelpage.answerLabel.Visibility = Visibility.Visible;
-                levelpage.answerInput.Visibility = Visibility.Visible;
-            }
+            var levelPage = (Application.Current.MainWindow as MainWindow).Level;
+            levelPage.CurrentLevel = GetLevelAsync(int.Parse((sender as Button).Content.ToString())).Result;
+            levelPage.question.Text = levelPage.CurrentLevel.Question;
+            levelPage.query.Text = string.Empty;
+            Uri imageUri = new Uri(levelPage.CurrentLevel.ERDiagram, UriKind.Absolute);
+            levelPage.img.Source = new BitmapImage(imageUri);
+            levelPage.levelnumber.Text = "Level " + levelPage.CurrentLevel.Id;
+            levelPage.answerInput.Text = string.Empty;
+            levelPage.answerLabel.Foreground = Brushes.Black;
+            levelPage.answerLabel.Text = "Input answer:";
 
             if ((sender as Button).Background.ToString() == "#FF7CFC00")
             {
-                levelpage.checkBtn.Background = Brushes.LawnGreen;
-                levelpage.checkBtn.Content = "Completed!";
-                levelpage.checkBtn.IsEnabled = false;
-                levelpage.answerLabel.Visibility = Visibility.Hidden;
-                levelpage.answerInput.Visibility = Visibility.Hidden;
+                if (levelPage.CurrentLevel.Visible == 0)
+                    LevelVisible0Completed(levelPage);
+                else
+                    LevelVisible1Completed(levelPage);
             }
             else
             {
-                levelpage.checkBtn.Background = (Brush)FindResource("PrimaryBackgroundColor");
-                levelpage.checkBtn.Content = "Check";
-                levelpage.checkBtn.IsEnabled = true;
-                if (levelpage.CurrentLevel.Visible == 1)
-                {
-                    levelpage.answerLabel.Visibility = Visibility.Visible;
-                    levelpage.answerInput.Visibility = Visibility.Visible;
-                }
+                if (levelPage.CurrentLevel.Visible == 0)
+                    LevelVisible0NotCompleted(levelPage);
+                else
+                    LevelVisible1NotCompleted(levelPage);
             }
-
 
             levelFrameContent.Navigate((App.Current.MainWindow as MainWindow).Level);
         }
@@ -105,6 +93,62 @@ namespace WPFUIKitProfessional.Pages
         {
             (sender as Button).Background = Color;
             Cursor = Cursors.Arrow;
+        }
+
+        private void LevelVisible1Completed(Level levelPage)
+        {
+            levelPage.execute.Background = (Brush)FindResource("PrimaryBackgroundColor");
+            levelPage.checkBtn.Background = Brushes.LawnGreen;
+
+            levelPage.execute.Content = "Execute";
+            levelPage.checkBtn.Content = "Completed";
+            levelPage.answerInput.Text = levelPage.CurrentLevel.Answer;
+
+            levelPage.execute.IsEnabled = true;
+            levelPage.checkBtn.IsEnabled = false;
+            levelPage.answerInput.IsReadOnly = true;
+
+            levelPage.checkBtn.Visibility = Visibility.Visible;
+            levelPage.answerLabel.Visibility = Visibility.Visible;
+            levelPage.answerInput.Visibility = Visibility.Visible;
+        }
+
+        private void LevelVisible0Completed(Level levelPage)
+        {
+            levelPage.execute.Background = Brushes.LawnGreen;
+            levelPage.execute.Content = "Completed";
+            levelPage.execute.IsEnabled = false;
+            levelPage.query.Text = levelPage.CurrentLevel.SQLanswer;
+
+            levelPage.checkBtn.Visibility = Visibility.Hidden;
+            levelPage.answerInput.Visibility = Visibility.Hidden;
+            levelPage.answerLabel.Visibility = Visibility.Hidden;
+        }
+        private void LevelVisible1NotCompleted(Level levelPage)
+        {
+            levelPage.checkBtn.Background = (Brush)FindResource("PrimaryBackgroundColor");
+            levelPage.execute.Background = (Brush)FindResource("PrimaryBackgroundColor");
+            levelPage.execute.Content = "Execute";
+            levelPage.checkBtn.Content = "Check";
+
+            levelPage.checkBtn.IsEnabled = true;
+            levelPage.execute.IsEnabled = true;
+            levelPage.answerInput.IsReadOnly = false;
+
+            levelPage.checkBtn.Visibility = Visibility.Visible;
+            levelPage.answerLabel.Visibility = Visibility.Visible;
+            levelPage.answerInput.Visibility = Visibility.Visible;
+        }
+        private void LevelVisible0NotCompleted(Level levelPage)
+        {
+            levelPage.execute.Background = (Brush)FindResource("PrimaryBackgroundColor");
+            levelPage.execute.Content = "Execute";
+
+            levelPage.execute.IsEnabled = true;
+
+            levelPage.checkBtn.Visibility = Visibility.Hidden;
+            levelPage.answerLabel.Visibility = Visibility.Hidden;
+            levelPage.answerInput.Visibility = Visibility.Hidden;
         }
     }
 }

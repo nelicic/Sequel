@@ -1,4 +1,5 @@
 ﻿using System.Data.Entity;
+using System.Security.Cryptography;
 using System.Threading.Tasks;
 using System.Windows;
 using WPFUIKitProfessional.Models;

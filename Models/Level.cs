@@ -16,6 +16,7 @@ namespace WPFUIKitProfessional.Models
         public string Path { get; set; }
         public int Visible { get; set; }
         public string SQLanswer { get; set; }
+        public string ERDiagram { get; set; }
         public Level() { }
     }
 }

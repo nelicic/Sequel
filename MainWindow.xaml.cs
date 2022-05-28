@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Linq;
 using System.Windows.Controls;
 using System.Windows.Media;
+using System.Collections;
 
 namespace WPFUIKitProfessional
 {
@@ -79,7 +80,7 @@ namespace WPFUIKitProfessional
             List<CompletedLevel> completedLevel = await db.CompletedLevels.Select(x => x).ToListAsync();
 
             var a = Levels.sidebar.Children;
-            System.Collections.IList list = a;
+            IList list = a;
             for (int i = 0; i < list.Count; i++)
             {
                 Button level = (Button)list[i];

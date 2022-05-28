@@ -2,8 +2,7 @@
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
-using WPFUIKitProfessional.Models;
-using WPFUIKitProfessional.Pages;
+using WPFUIKitProfessional.Service;
 
 namespace WPFUIKitProfessional.Authorization
 {
@@ -37,10 +36,10 @@ namespace WPFUIKitProfessional.Authorization
             var account = (Account)Window.GetWindow(this);
             if (account.IsAuthorized(login.Text).Result)
             {
-                if (account.IsAuthorized(login.Text, pb.Password).Result)
+                if (account.IsAuthorized(login.Text, Encryption.GetHashString(pb.Password)).Result)
                 {
                     var MainWindow = (App.Current.MainWindow as MainWindow);
-                    MainWindow.CurrentUser = account.GetUser(login.Text, pb.Password).Result;
+                    MainWindow.CurrentUser = account.GetUser(login.Text, Encryption.GetHashString(pb.Password)).Result;
                     MainWindow.Visibility = Visibility.Visible;
 
                     MainWindow.Users.id.Text = MainWindow.CurrentUser.Id.ToString();
