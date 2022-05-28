@@ -18,6 +18,7 @@ namespace WPFUIKitProfessional.Pages
         public Models.Level CurrentLevel { get; set; }
 
         private SQLiteConnection sqlconn;
+        private SQLiteCommand sqlCmd;
         private DataTable dataTable = new DataTable();
         private readonly DataSet ds = new DataSet();
         private SQLiteDataAdapter dbSqlite = new SQLiteDataAdapter();
@@ -42,7 +43,9 @@ namespace WPFUIKitProfessional.Pages
         }
         private void SetConnection(string path)
         {
-            sqlconn = new SQLiteConnection(ConfigurationManager.ConnectionStrings[path].ConnectionString);
+            ConnectionStringSettings c = ConfigurationManager.ConnectionStrings[path];
+            string fixedConnectionString = c.ConnectionString.Replace("{AppDir}", AppDomain.CurrentDomain.BaseDirectory.Replace("\\bin\\Debug", ""));
+            sqlconn = new SQLiteConnection(fixedConnectionString);
         }
 
         private async void ExecuteButton_Click(object sender, RoutedEventArgs e)
@@ -52,6 +55,8 @@ namespace WPFUIKitProfessional.Pages
 
             SetConnection(CurrentLevel.Path);
             sqlconn.Open();
+
+            sqlCmd = sqlconn.CreateCommand();
             string CommandText = Simplify(query.Text);
 
             dbSqlite = new SQLiteDataAdapter(CommandText, sqlconn);
@@ -126,6 +131,10 @@ namespace WPFUIKitProfessional.Pages
 
         private string Simplify(string text)
         {
+            while (text.Contains("\t"))
+                text = text.Replace("\t", " ");
+            while (text.Contains("\n") || text.Contains("\r"))
+                text = text.Replace("\n", " ").Replace("\r", " ");
             while (text.Contains("  "))
                 text = text.Replace("  ", " ");
             return text;

@@ -5,7 +5,6 @@ using WPFUIKitProfessional.Authorization;
 using WPFUIKitProfessional.Models;
 using System.Data.Entity;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using System.Linq;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -33,9 +32,8 @@ namespace WPFUIKitProfessional
             Account account = new Account();
             account.Show();
             account.authorizationFrameContent.Navigate(new Login());
-
             Visibility = Visibility.Hidden;
-            //Visibility = Visibility.Visible;
+
             InitializeComponent();
         }
 

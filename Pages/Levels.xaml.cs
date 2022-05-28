@@ -55,7 +55,7 @@ namespace WPFUIKitProfessional.Pages
             levelPage.CurrentLevel = GetLevelAsync(int.Parse((sender as Button).Content.ToString())).Result;
             levelPage.question.Text = levelPage.CurrentLevel.Question;
             levelPage.query.Text = string.Empty;
-            Uri imageUri = new Uri(levelPage.CurrentLevel.ERDiagram, UriKind.Absolute);
+            Uri imageUri = new Uri(levelPage.CurrentLevel.ERDiagram, UriKind.Relative);
             levelPage.img.Source = new BitmapImage(imageUri);
             levelPage.levelnumber.Text = "Level " + levelPage.CurrentLevel.Id;
             levelPage.answerInput.Text = string.Empty;
