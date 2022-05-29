@@ -19,8 +19,7 @@ namespace WPFUIKitProfessional.Service
         public SQLite(string path)
         {
             ConnectionStringSettings c = ConfigurationManager.ConnectionStrings[path];
-            string fixedConnectionString = c.ConnectionString.Replace("{AppDir}", AppDomain.CurrentDomain.BaseDirectory.Replace("\\bin\\Debug", ""));
-            sqlconn = new SQLiteConnection(fixedConnectionString);
+            sqlconn = new SQLiteConnection(c.ToString());
         }
 
         public void Query(string query)
@@ -56,6 +55,7 @@ namespace WPFUIKitProfessional.Service
                 answerLabel.Visibility = Visibility.Visible;
                 answerLabel.Foreground = Brushes.Red;
                 answerLabel.Text = "Query Error";
+                dataGrid.ItemsSource = null;
             }
             sqlconn.Close();
         }

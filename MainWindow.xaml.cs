@@ -59,8 +59,8 @@ namespace WPFUIKitProfessional
         public async void rdLevels_Click(object sender, RoutedEventArgs e)
         {
             var db = new ApplicationContext();
-            db.Levels.Load();
-            db.CompletedLevels.Load();
+            await db.Levels.LoadAsync();
+            await db.CompletedLevels.LoadAsync();
             DataContext = db.Levels.Local.ToBindingList();
             DataContext = db.CompletedLevels.Local.ToBindingList();
             List<int> levelId = await db.Levels.Select(x => x.Id).ToListAsync();
