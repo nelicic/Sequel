@@ -18,10 +18,12 @@ namespace WPFUIKitProfessional
         public Guide Guide { get; set; }
         public Levels Levels { get; set; }
         public Users Users { get; set; }
+        public LevelConstructor LevelConstructor { get; set; }
         public Pages.Level Level { get; set; }
 
         public MainWindow()
         {
+            LevelConstructor = new LevelConstructor();
             Constructor = new Constructor();
             Guide = new Guide();
             Levels = new Levels();
@@ -35,10 +37,6 @@ namespace WPFUIKitProfessional
             
             InitializeComponent();
         }
-
-        #region Culture
-
-        #endregion
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
@@ -87,17 +85,18 @@ namespace WPFUIKitProfessional
             Levels.levelFrameContent.Navigate(null);
             frameContent.Navigate(Levels);
         }
-
         private void rdGuide_Click(object sender, RoutedEventArgs e)
         {
             frameContent.Navigate(Guide);
         }
-
         private void rdConstructor_Click(object sender, RoutedEventArgs e)
         {
             frameContent.Navigate(Constructor);
         }
-
+        private void rdLevelConstructor_Click(object sender, RoutedEventArgs e)
+        {
+            frameContent.Navigate(LevelConstructor);
+        }
         private void rdUsers_Click(object sender, RoutedEventArgs e)
         {
             // probably don't need it
@@ -115,5 +114,6 @@ namespace WPFUIKitProfessional
             // -----------------------
             frameContent.Navigate(Users);
         }
+
     }
 }

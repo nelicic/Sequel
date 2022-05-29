@@ -223,6 +223,9 @@ FULL (OUTER) JOIN: Returns all records when there is a match in either left or r
   <data name="left" xml:space="preserve">
     <value>The LEFT JOIN keyword returns all records from the left table (table1), and the matching records from the right table (table2). The result is 0 records from the right side, if there is no match.</value>
   </data>
+  <data name="levelconstructor" xml:space="preserve">
+    <value>Level constructor</value>
+  </data>
   <data name="like" xml:space="preserve">
     <value>The LIKE operator is used in a WHERE clause to search for a specified pattern in a column.
 

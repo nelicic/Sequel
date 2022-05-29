@@ -312,6 +312,15 @@ namespace WPFUIKitProfessional.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Level constructor.
+        /// </summary>
+        internal static string levelconstructor {
+            get {
+                return ResourceManager.GetString("levelconstructor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на The LIKE operator is used in a WHERE clause to search for a specified pattern in a column.
         ///
         ///There are two wildcards often used in conjunction with the LIKE operator:

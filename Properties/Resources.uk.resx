@@ -223,6 +223,9 @@ ALL означає, що умова буде істинною, лише якщо
   <data name="left" xml:space="preserve">
     <value>Ключове слово LEFT JOIN повертає всі записи з лівої таблиці (таблиця1) і відповідні записи з правої таблиці (таблиця2). Результатом буде 0 записів з правого боку, якщо немає відповідності.</value>
   </data>
+  <data name="levelconstructor" xml:space="preserve">
+    <value>Конструктор рівнів</value>
+  </data>
   <data name="like" xml:space="preserve">
     <value>Оператор LIKE використовується в оператор WHERE для пошуку вказаного шаблону в стовпці.
 

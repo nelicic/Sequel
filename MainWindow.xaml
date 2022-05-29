@@ -41,6 +41,7 @@
                         <RadioButton x:Name="rdGuide" Content="{hm:Lang guide}" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource guide}" Click="rdGuide_Click"/>
                         <RadioButton x:Name="rdLevels" Content="{hm:Lang lvl}" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource levels}" Margin="0 1 0 1" Click="rdLevels_Click"/>
                         <RadioButton x:Name="rdConstructor" Content="{hm:Lang constructor}" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource constructor}" Margin="0 1 0 1" Click="rdConstructor_Click"/>
+                        <RadioButton x:Name="rdLevelConstructor" Content="{hm:Lang levelconstructor}" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource constructor}" Margin="0 1 0 1" Click="rdLevelConstructor_Click"/>
                         <RadioButton x:Name="rdUsers" Content="{hm:Lang account}" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource users}" Click="rdUsers_Click"/>
 
                         <Separator Margin="20 20" Background="{DynamicResource TertiaryBackgroundColor}"/>
