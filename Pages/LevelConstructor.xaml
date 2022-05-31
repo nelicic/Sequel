@@ -34,7 +34,7 @@
                         <TextBlock Name="Db1" Text="PlayList"></TextBlock>
                     </ComboBoxItem>
                     <ComboBoxItem>
-                        <TextBlock Name="Db2" Text="University"></TextBlock>
+                        <TextBlock Name="Db2" Text="SimpleFolks"></TextBlock>
                     </ComboBoxItem>
                 </ComboBox>
 

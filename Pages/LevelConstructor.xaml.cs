@@ -25,7 +25,7 @@ namespace WPFUIKitProfessional.Pages
                 {
                     Question = task.Text,
                     Path = ((TextBlock)((ComboBoxItem)database.SelectedItem).Content).Text,
-                    ERDiagram = ((TextBlock)((ComboBoxItem)database.SelectedItem).Content).Text == "PlayList" ? "/PlayLists.png" : "/University.png",
+                    ERDiagram = ((TextBlock)((ComboBoxItem)database.SelectedItem).Content).Text == "PlayList" ? "/DBs/PlayLists.png" : "/DBs/simplefolks.png",
                     Visible = ((TextBlock)((ComboBoxItem)type.SelectedItem).Content).Text == "Type 1" ? 1 : 0,
                 };
 

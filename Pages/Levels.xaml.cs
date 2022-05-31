@@ -57,7 +57,7 @@ namespace WPFUIKitProfessional.Pages
             var levelPage = (Application.Current.MainWindow as MainWindow).Level;
             levelPage.CurrentLevel = GetLevelAsync(int.Parse((sender as Button).Content.ToString())).Result;
             levelPage.question.Text = levelPage.CurrentLevel.Question;
-            levelPage.query.Text = string.Empty;
+            levelPage.query.Text = String.Empty;
             Uri imageUri = new Uri(levelPage.CurrentLevel.ERDiagram, UriKind.Relative);
             levelPage.img.Source = new BitmapImage(imageUri);
             levelPage.levelnumber.Text = "Level " + levelPage.CurrentLevel.Id;
@@ -104,7 +104,10 @@ namespace WPFUIKitProfessional.Pages
         private void Btn_MouseLeave(object sender, MouseEventArgs e)
         {
             (sender as Button).Background = Color;
-            (sender as Button).Foreground = (Brush)FindResource("PrimaryTextColor");
+            if (Color == Brushes.Green)
+                (sender as Button).Foreground = Brushes.White;
+            else
+                (sender as Button).Foreground = (Brush)FindResource("PrimaryTextColor");
             Cursor = Cursors.Arrow;
         }
 

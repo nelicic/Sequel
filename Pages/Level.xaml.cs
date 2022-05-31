@@ -40,6 +40,7 @@ namespace WPFUIKitProfessional.Pages
         {
             answerLabel.Foreground = Brushes.Black;
             answerLabel.Text = "Input answer:";
+            answerLabel.Visibility = Visibility.Hidden;
 
             SQLite sQLite = new SQLite(CurrentLevel.Path);
             sQLite.Query(query.Text);
@@ -48,7 +49,8 @@ namespace WPFUIKitProfessional.Pages
 
             if (CurrentLevel.Visible == 0)
             {
-                if (CommandText.ToUpper() == CurrentLevel.SQLanswer.ToUpper())
+                string correctSQLanswer = sQLite.Simplify(CurrentLevel.SQLanswer);
+                if (CommandText.ToUpper().Trim() == correctSQLanswer.ToUpper().Trim())
                 {
                     var db = new ApplicationContext();
                     db.CompletedLevels.Load();
