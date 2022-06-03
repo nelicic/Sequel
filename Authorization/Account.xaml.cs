@@ -1,4 +1,6 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.ComponentModel;
+using System.Data.Entity;
 using System.Security.Cryptography;
 using System.Threading.Tasks;
 using System.Windows;

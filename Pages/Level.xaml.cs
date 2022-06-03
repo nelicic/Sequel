@@ -47,7 +47,7 @@ namespace WPFUIKitProfessional.Pages
             sQLite.Execute(dataGrid,answerLabel);
             string CommandText = sQLite.Simplify(query.Text);
 
-            if (CurrentLevel.Visible == 0)
+            if (CurrentLevel.Visible == 0) 
             {
                 string correctSQLanswer = sQLite.Simplify(CurrentLevel.SQLanswer);
                 if (CommandText.ToUpper().Trim() == correctSQLanswer.ToUpper().Trim())

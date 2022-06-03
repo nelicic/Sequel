@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WPFUIKitProfessional.Authorization"
         mc:Ignorable="d"
         Title="Login" Height="590" Width="400" 
-        ResizeMode="NoResize" WindowStartupLocation="CenterScreen" FontFamily="Poppins">
+        ResizeMode="NoResize" WindowStartupLocation="CenterScreen" FontFamily="Poppins" Icon="/Assets/Icons/Logo.png">
     <Grid>
         <Border Grid.Row="1" Background="Transparent">
             <Frame x:Name="authorizationFrameContent" NavigationUIVisibility="Hidden"/>
