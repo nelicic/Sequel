@@ -10,7 +10,7 @@
 
     <Border CornerRadius="8" Background="{DynamicResource SecundaryBackgroundColor}">
         <StackPanel Orientation="Horizontal">
-            <StackPanel Margin="50 100 0 0">
+            <StackPanel Margin="340 100 0 0">
                 <Image Source="/Authorization/LoginIcon.png" Width="180" Margin="150 20 20 20" />
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="ID:" 

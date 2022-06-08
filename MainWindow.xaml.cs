@@ -14,7 +14,6 @@ namespace WPFUIKitProfessional
     public partial class MainWindow : Window
     {
         public User CurrentUser { get; set; }
-        public Constructor Constructor { get; set; }
         public Guide Guide { get; set; }
         public Levels Levels { get; set; }
         public Users Users { get; set; }
@@ -24,7 +23,6 @@ namespace WPFUIKitProfessional
         public MainWindow()
         {
             LevelConstructor = new LevelConstructor();
-            Constructor = new Constructor();
             Guide = new Guide();
             Levels = new Levels();
             Users = new Users();
@@ -88,10 +86,6 @@ namespace WPFUIKitProfessional
         private void rdGuide_Click(object sender, RoutedEventArgs e)
         {
             frameContent.Navigate(Guide);
-        }
-        private void rdConstructor_Click(object sender, RoutedEventArgs e)
-        {
-            frameContent.Navigate(Constructor);
         }
         private void rdLevelConstructor_Click(object sender, RoutedEventArgs e)
         {

@@ -2,6 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
 using WPFUIKitProfessional.Models;
 
 namespace WPFUIKitProfessional.Pages
@@ -18,6 +19,8 @@ namespace WPFUIKitProfessional.Pages
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            error.Foreground = Brushes.Red;
+            error.Content = "Fill all fields";
             error.Visibility = Visibility.Hidden;
             if (task.Text != string.Empty && answer.Text != string.Empty)
             {
@@ -39,6 +42,12 @@ namespace WPFUIKitProfessional.Pages
                 DataContext = db.Levels.Local.ToBindingList();
                 db.Levels.Add(level);
                 db.SaveChanges();
+
+                task.Text = string.Empty;
+                answer.Text = string.Empty;
+                error.Foreground = Brushes.Green;
+                error.Content = "Level has been created";
+                error.Visibility = Visibility.Visible;
 
                 (Application.Current.MainWindow as MainWindow).Levels = new Levels();
             }

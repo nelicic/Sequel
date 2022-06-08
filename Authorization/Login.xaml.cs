@@ -41,6 +41,10 @@ namespace WPFUIKitProfessional.Authorization
                     var MainWindow = (App.Current.MainWindow as MainWindow);
                     MainWindow.CurrentUser = account.GetUser(login.Text, Encryption.GetHashString(pb.Password)).Result;
                     MainWindow.Visibility = Visibility.Visible;
+                    if (login.Text == "admin")
+                        MainWindow.rdLevelConstructor.Visibility = Visibility.Visible;
+                    else
+                        MainWindow.rdLevelConstructor.Visibility = Visibility.Hidden;
 
                     MainWindow.Users.id.Text = MainWindow.CurrentUser.Id.ToString();
                     MainWindow.Users.login.Text = MainWindow.CurrentUser.Login;

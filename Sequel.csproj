@@ -185,9 +185,6 @@
     <Compile Include="Pages\Levels.xaml.cs">
       <DependentUpon>Levels.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Constructor.xaml.cs">
-      <DependentUpon>Constructor.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Pages\Guide.xaml.cs">
       <DependentUpon>Guide.xaml</DependentUpon>
     </Compile>
@@ -239,10 +236,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\Levels.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\Constructor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
