@@ -157,6 +157,9 @@ ALL означає, що умова буде істинною, лише якщо
   <data name="constructor" xml:space="preserve">
     <value>Конструктор</value>
   </data>
+  <data name="date" xml:space="preserve">
+    <value>Дата:</value>
+  </data>
   <data name="delete" xml:space="preserve">
     <value>Оператор DELETE використовується для видалення наявних записів у таблиці. Примітка. Будьте обережні, видаляючи записи в таблиці! Зверніть увагу на оператор WHERE в операторі DELETE. Оператор WHERE вказує, які записи(и) слід видалити. Якщо ви пропустите оператор WHERE, усі записи в таблиці будуть видалені! Можна видалити всі рядки в таблиці, не видаляючи таблицю. Це означає, що структура таблиці, атрибути та індекси залишаться незмінними</value>
   </data>
@@ -200,6 +203,9 @@ ALL означає, що умова буде істинною, лише якщо
   <data name="home" xml:space="preserve">
     <value>Головна сторінка</value>
   </data>
+  <data name="id" xml:space="preserve">
+    <value>Ід:</value>
+  </data>
   <data name="in" xml:space="preserve">
     <value>Оператор IN дозволяє вказати кілька значень у операторі WHERE.
 
@@ -238,6 +244,12 @@ ALL означає, що умова буде істинною, лише якщо
     <value>Оператор  LIMIT використовується для визначення кількості записів, які повертаються.
 
 Оператор LIMIT корисно для великих таблиць з тисячами записів. Повернення великої кількості записів може вплинути на продуктивність.</value>
+  </data>
+  <data name="login" xml:space="preserve">
+    <value>Логін:</value>
+  </data>
+  <data name="logout" xml:space="preserve">
+    <value>Вийти</value>
   </data>
   <data name="lvl" xml:space="preserve">
     <value>Рівні</value>

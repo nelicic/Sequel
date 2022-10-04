@@ -167,6 +167,15 @@ namespace WPFUIKitProfessional.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Date:.
+        /// </summary>
+        internal static string date {
+            get {
+                return ResourceManager.GetString("date", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на The DELETE statement is used to delete existing records in a table.                                                Note: Be careful when deleting records in a table! Notice the WHERE clause in the DELETE statement. The WHERE clause specifies which record(s) should be deleted. If you omit the WHERE clause, all records in the table will be deleted!                                                                                        It is possible to delete all rows in a table without deleting the table. Thi [остаток строки не уместился]&quot;;.
         /// </summary>
         internal static string delete {
@@ -270,6 +279,15 @@ namespace WPFUIKitProfessional.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на ID:.
+        /// </summary>
+        internal static string id {
+            get {
+                return ResourceManager.GetString("id", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на The INNER JOIN keyword selects records that have matching values in both tables..
         /// </summary>
         internal static string inner {
@@ -342,6 +360,24 @@ namespace WPFUIKitProfessional.Properties {
         internal static string limit {
             get {
                 return ResourceManager.GetString("limit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Login:.
+        /// </summary>
+        internal static string login {
+            get {
+                return ResourceManager.GetString("login", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Logout.
+        /// </summary>
+        internal static string logout {
+            get {
+                return ResourceManager.GetString("logout", resourceCulture);
             }
         }
         

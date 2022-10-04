@@ -93,7 +93,6 @@ namespace WPFUIKitProfessional
         }
         private void rdUsers_Click(object sender, RoutedEventArgs e)
         {
-            // probably don't need it
             User user = (App.Current.MainWindow as MainWindow).CurrentUser;
             if (user != null)
             {
@@ -105,7 +104,6 @@ namespace WPFUIKitProfessional
             {
                 Users.id.Text = Users.login.Text = Users.date.Text = string.Empty;
             }
-            // -----------------------
             frameContent.Navigate(Users);
         }
 

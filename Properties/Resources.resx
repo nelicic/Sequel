@@ -157,6 +157,9 @@ If there is no ELSE part and no conditions are true, it returns NULL.</value>
   <data name="constructor" xml:space="preserve">
     <value>Constructor</value>
   </data>
+  <data name="date" xml:space="preserve">
+    <value>Date:</value>
+  </data>
   <data name="delete" xml:space="preserve">
     <value>The DELETE statement is used to delete existing records in a table.                                                Note: Be careful when deleting records in a table! Notice the WHERE clause in the DELETE statement. The WHERE clause specifies which record(s) should be deleted. If you omit the WHERE clause, all records in the table will be deleted!                                                                                        It is possible to delete all rows in a table without deleting the table. This means that the table structure, attributes, and indexes will be intact</value>
   </data>
@@ -200,6 +203,9 @@ The GROUP BY statement is often used with aggregate functions (COUNT(), MAX(), M
   <data name="home" xml:space="preserve">
     <value>Home</value>
   </data>
+  <data name="id" xml:space="preserve">
+    <value>ID:</value>
+  </data>
   <data name="in" xml:space="preserve">
     <value>The IN operator allows you to specify multiple values in a WHERE clause.
 
@@ -238,6 +244,12 @@ There are two wildcards often used in conjunction with the LIKE operator:
     <value>The LIMIT clause is used to specify the number of records to return.
 
 The LIMIT clause is useful on large tables with thousands of records. Returning a large number of records can impact performance.</value>
+  </data>
+  <data name="login" xml:space="preserve">
+    <value>Login:</value>
+  </data>
+  <data name="logout" xml:space="preserve">
+    <value>Logout</value>
   </data>
   <data name="lvl" xml:space="preserve">
     <value>Levels</value>

@@ -21,10 +21,15 @@ namespace WPFUIKitProfessional.Pages
         {
             InitializeComponent();
 
+            // Connectiong do DB
             db = new ApplicationContext();
             db.Levels.Load();
             DataContext = db.Levels.Local.ToBindingList();
+
+            // Getting list of Id
             List<int> levelId = GetLevelIdAsync().Result;
+            
+            // Adding buttons to sidebar
             foreach (int id in levelId)
             {
                 Button levelBtn = new Button();
@@ -34,7 +39,6 @@ namespace WPFUIKitProfessional.Pages
                 levelBtn.Content = id.ToString();
                 levelBtn.Name = "Button" + id.ToString();
                 levelBtn.Width = levelBtn.Height = 60;
-                
                 levelBtn.Margin = new Thickness(10);
                 levelBtn.Style = FindResource("Authorization") as Style;
                 levelBtn.MouseEnter += Btn_MouseEnter;
